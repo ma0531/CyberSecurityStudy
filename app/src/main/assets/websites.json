@@ -1,0 +1,48 @@
+{
+  "updated": "2026-10-31",
+  "groups": [
+    {
+      "title": "最新の脅威・注意喚起をチェックする",
+      "description": "新しい攻撃手口や、今すぐ対応が必要な脆弱性の情報が出るサイトです。週に1回ほど見る習慣をつけましょう。",
+      "sites": [
+        {"name": "IPA 重要なセキュリティ情報", "url": "https://www.ipa.go.jp/security/security-alert/index.html", "level": "初級〜", "description": "緊急度の高い脆弱性や攻撃について、利用者向けに対策をまとめて発信しています。"},
+        {"name": "JPCERT/CC 注意喚起", "url": "https://www.jpcert.or.jp/at/", "level": "中級〜", "description": "国内で被害が広がるおそれのある脆弱性・攻撃の注意喚起。組織の担当者向け。"},
+        {"name": "JVN（脆弱性対策情報ポータル）", "url": "https://jvn.jp/", "level": "中級〜", "description": "日本で使われている製品の脆弱性と対策情報。JPCERT/CC と IPA の共同運営。"},
+        {"name": "フィッシング対策協議会 緊急情報", "url": "https://www.antiphishing.jp/news/alert/", "level": "初級〜", "description": "実際に出回っているフィッシングメール・偽サイトの事例を、画面付きで紹介しています。"},
+        {"name": "警察庁 サイバー警察局", "url": "https://www.npa.go.jp/bureau/cyber/", "level": "初級〜", "description": "サイバー犯罪の情勢（ランサムウェア被害の統計など）や、注意喚起を公表しています。"},
+        {"name": "CISA KEV カタログ（英語）", "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog", "level": "上級", "description": "実際に悪用が確認された脆弱性の一覧。対応の優先順位付けに使われます。"}
+      ]
+    },
+    {
+      "title": "基礎から学ぶ（初心者向け）",
+      "description": "公的機関が一般の人向けに作った、分かりやすい教材です。",
+      "sites": [
+        {"name": "IPA ここからセキュリティ！", "url": "https://www.ipa.go.jp/security/kokokara/", "level": "初級", "description": "情報セキュリティの学習教材や相談窓口をまとめたポータルサイト。"},
+        {"name": "総務省 国民のためのサイバーセキュリティサイト", "url": "https://www.soumu.go.jp/main_sosiki/cybersecurity/kokumin/", "level": "初級", "description": "基礎知識から家庭・職場での対策まで、体系的に解説しています。"},
+        {"name": "インターネットの安全・安心ハンドブック", "url": "https://security-portal.cyber.go.jp/guidance/handbook.html", "level": "初級", "description": "国のサイバーセキュリティ担当組織が作成した、ネットを安全に使うためのハンドブック。"},
+        {"name": "IPA 情報セキュリティ10大脅威", "url": "https://www.ipa.go.jp/security/10threats/", "level": "初級〜", "description": "毎年発表される「今注目の脅威」ランキング。個人編と組織編があります。"},
+        {"name": "IPA 情報セキュリティ安心相談窓口", "url": "https://www.ipa.go.jp/security/anshin/about.html", "level": "初級", "description": "ウイルスや詐欺の被害に遭ったかも、と困ったときの相談先です。"}
+      ]
+    },
+    {
+      "title": "さらに深く学ぶ（中級〜上級）",
+      "description": "資格試験の情報や、専門家が実務で参照している資料です。",
+      "sites": [
+        {"name": "IPA 情報セキュリティマネジメント試験", "url": "https://www.ipa.go.jp/shiken/kubun/sg.html", "level": "中級", "description": "組織の情報セキュリティ管理を学ぶ国家試験。中級レベルの目標に。"},
+        {"name": "IPA 情報処理安全確保支援士試験", "url": "https://www.ipa.go.jp/shiken/kubun/sc.html", "level": "上級", "description": "セキュリティ専門家向けの国家資格。上級レベルの目標に。"},
+        {"name": "IPA 安全なウェブサイトの作り方", "url": "https://www.ipa.go.jp/security/vuln/websecurity/about.html", "level": "中級〜", "description": "Webアプリの代表的な脆弱性と対策を解説した、開発者向けの定番資料。"},
+        {"name": "OWASP Top 10（英語）", "url": "https://owasp.org/www-project-top-ten/", "level": "上級", "description": "Webアプリの重大なセキュリティリスクのランキング。数年ごとに改訂されます。"},
+        {"name": "MITRE ATT&CK（英語）", "url": "https://attack.mitre.org/", "level": "上級", "description": "実際の攻撃事例から、攻撃者の戦術・技術を体系化したナレッジベース。"},
+        {"name": "NIST SP 800-61（インシデント対応・英語）", "url": "https://csrc.nist.gov/pubs/sp/800/61/r3/final", "level": "上級", "description": "インシデント対応の国際的な指針。"}
+      ]
+    },
+    {
+      "title": "手を動かして練習する（合法な演習環境）",
+      "description": "攻撃の練習は、必ず許可された環境で行いましょう。",
+      "sites": [
+        {"name": "picoCTF（英語）", "url": "https://picoctf.org/", "level": "初級〜", "description": "初心者向けのCTF（セキュリティ技術を競うゲーム）。問題を解きながら学べます。"},
+        {"name": "OWASP Juice Shop（英語）", "url": "https://owasp.org/www-project-juice-shop/", "level": "中級〜", "description": "わざと脆弱に作られた練習用Webアプリ。自分のPC上で動かして練習します。"}
+      ]
+    }
+  ]
+}
