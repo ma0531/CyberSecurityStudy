@@ -189,8 +189,13 @@
             "基本を学ぶ ↓"
           )
         ),
-        // 写真の代わりの飾り。画像を用意したら、ここに <img> を入れてください
-        h("div", { class: "hero-visual", "aria-hidden": "true" }, h("span", { class: "hero-caption" }, "知ることが、守ることの第一歩。"))
+        // ヒーローの写真（docs/hero.jpg）と、写真の上に重ねる一言
+        h(
+          "figure",
+          { class: "hero-visual" },
+          h("img", { src: "hero.jpg", alt: "セキュリティの監視画面が映ったモニター", width: "493", height: "294" }),
+          h("figcaption", { class: "hero-caption" }, "知ることが、守ることの第一歩。")
+        )
       ),
       // 入口（3つのカード）
       h(
