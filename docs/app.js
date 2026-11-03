@@ -177,6 +177,7 @@
         { class: "menu-cards" },
         menuCard("#/lessons/beginner", "レッスンで学ぶ", "基礎知識を読んで学ぶ"),
         menuCard("#/quiz", "クイズに挑戦", `全 ${totalQuestions} 問からランダム出題`),
+        menuCard("#/certifications", "資格一覧", "セキュリティ関係の資格と申し込み方法"),
         menuCard("#/websites", "おすすめWebサイト", "最新情報・学習サイトの紹介")
       )
     );
@@ -570,6 +571,42 @@
     );
   }
 
+  // ---- 資格一覧（概要・対象・出題形式・申し込みの流れ・公式リンク） ----
+  function renderCertifications() {
+    render(
+      pageHeader({ title: "資格一覧", backLabel: "← メニュー" }),
+      h("p", { class: "notice" }, DATA.certifications.description),
+      DATA.certifications.categories.map((category) =>
+        h(
+          "section",
+          {},
+          h("h2", { class: "category-title" }, category.name),
+          category.items.map((item) =>
+            h(
+              "article",
+              { class: "card" },
+              h("h3", {}, item.name),
+              h("p", {}, item.summary),
+              h("p", { class: "sub" }, `対象：${item.target}`),
+              h("p", { class: "sub" }, `出題形式：${item.format}`),
+              h("p", { class: "difficulty", title: "☆が多いほど難しい（目安）" }, `難易度：${"☆".repeat(item.difficulty)}`),
+              h("h4", {}, "申し込みの流れ"),
+              h("ol", {}, item.how_to_apply.map((step) => h("li", {}, step))),
+              h(
+                "div",
+                { class: "cert-actions" },
+                h("a", { class: "btn", href: item.official_url, target: "_blank", rel: "noopener noreferrer" }, "公式サイト"),
+                item.apply_url
+                  ? h("a", { class: "btn primary", href: item.apply_url, target: "_blank", rel: "noopener noreferrer" }, "申込ページ")
+                  : null
+              )
+            )
+          )
+        )
+      )
+    );
+  }
+
   // 存在しないハッシュを開いたときの表示
   function renderNotFound() {
     render(
@@ -593,6 +630,8 @@
         if (arg === "run" && quiz && !quiz.finished) return renderQuiz();
         if (arg === "result" && quiz && quiz.finished) return renderResult();
         return renderQuizSetup();
+      case "certifications":
+        return renderCertifications();
       case "websites":
         return renderWebsites();
       default:

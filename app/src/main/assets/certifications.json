@@ -1,0 +1,92 @@
+{
+  "description": "セキュリティに関係する主な資格の概要と、申し込みの流れです。難易度は ☆ の数で表し、☆が多いほど難しいことを示します（目安です）。料金・日程・受験条件は変わることがあるため、申し込む前に必ず公式サイトで最新の情報を確認してください。",
+  "categories": [
+    {
+      "name": "国内（IPA の国家試験）",
+      "items": [
+        {
+          "name": "ITパスポート試験（IP）",
+          "summary": "ITの基礎知識を問う国家試験です。情報セキュリティの基礎も出題されます。",
+          "target": "これからITやセキュリティを学ぶ人。",
+          "format": "多肢選択式（CBT方式）",
+          "difficulty": 1,
+          "how_to_apply": [
+            "IPA の試験区分の一覧ページで、申込期間と実施方式を確認する",
+            "案内に従って申込サイトを開き、試験日時と会場を選んで申し込む"
+          ],
+          "official_url": "https://www.ipa.go.jp/shiken/kubun/list.html"
+        },
+        {
+          "name": "情報セキュリティマネジメント試験（SG）",
+          "summary": "情報セキュリティの管理（マネジメント）に関する知識を問う国家試験です。リスク対応、ISMS、関連する法律などが出題されます。",
+          "target": "組織で情報セキュリティの管理や運用に関わる人。",
+          "format": "多肢選択式（CBT方式・随時受験）",
+          "difficulty": 2,
+          "how_to_apply": [
+            "IPA の概要ページから、委託先の申込サイトへ進む",
+            "試験会場と日時を選んで申し込む",
+            "実施を休止する期間の予定があるため、申し込む前に実施状況を確認する"
+          ],
+          "official_url": "https://www.ipa.go.jp/shiken/kubun/sg.html"
+        },
+        {
+          "name": "基本情報技術者試験（FE）",
+          "summary": "ITエンジニアの基礎を問う国家試験です。アルゴリズム、ネットワーク、データベース、情報セキュリティなどが出題されます。",
+          "target": "ITエンジニアを目指す人や、ITの基礎を体系的に学びたい人。",
+          "format": "午前：多肢選択式、午後：記述式",
+          "difficulty": 3,
+          "how_to_apply": [
+            "IPA の試験区分の一覧ページで、申込期間と実施方式を確認する",
+            "案内に従って申込サイトを開き、試験日時と会場を選んで申し込む"
+          ],
+          "official_url": "https://www.ipa.go.jp/shiken/kubun/list.html"
+        },
+        {
+          "name": "情報処理安全確保支援士試験（SC）",
+          "summary": "サイバーセキュリティの専門家の国家資格です。午前（多肢選択式）と午後（記述式）の試験があります。",
+          "target": "セキュリティ対策の企画・設計・運用を担う人。",
+          "format": "午前：多肢選択式、午後：記述式（2026年度はCBT方式で実施）",
+          "difficulty": 4,
+          "how_to_apply": [
+            "IPA の公式ページで、その年度の申込期間と試験日程を確認する",
+            "申込サイトで申し込み、受験料を支払う",
+            "合格後、IPA に登録を申請すると、資格を名乗れるようになる（登録は年2回）"
+          ],
+          "official_url": "https://www.ipa.go.jp/shiken/kubun/sc.html"
+        }
+      ]
+    },
+    {
+      "name": "海外（民間団体の国際資格）",
+      "items": [
+        {
+          "name": "CompTIA Security+",
+          "summary": "ベンダーに依存しない、セキュリティの基礎と実務の知識を問う国際資格です。",
+          "target": "セキュリティ分野に入門する人や、IT の実務者。",
+          "format": "多肢選択式など（出題形式は公式で確認）",
+          "difficulty": 3,
+          "how_to_apply": [
+            "CompTIA の公式サイトで、試験の内容と受験の準備を確認する",
+            "試験のバウチャー（受験券）を購入する",
+            "Pearson VUE の予約サイトで、試験日時と会場を選んで予約する"
+          ],
+          "official_url": "https://www.comptia.org/certifications/security"
+        },
+        {
+          "name": "CISSP（Certified Information Systems Security Professional）",
+          "summary": "情報セキュリティの管理者向けの、国際的な上級資格です。8つの分野（ドメイン）から出題されます。",
+          "target": "セキュリティの管理や設計に携わる、実務経験のある人。",
+          "format": "英語での出題が基本（出題形式は公式で確認）",
+          "difficulty": 5,
+          "how_to_apply": [
+            "ISC2 の公式サイトで、受験の条件（実務経験など）を確認する",
+            "ISC2 の申込ページで登録し、規約に同意する",
+            "登録後、Pearson VUE で試験日時と会場を予約する"
+          ],
+          "official_url": "https://www.isc2.org/Certifications/CISSP",
+          "apply_url": "https://www.isc2.org/register-for-exam?exam=CISSP"
+        }
+      ]
+    }
+  ]
+}

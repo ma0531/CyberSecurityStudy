@@ -403,6 +403,36 @@ legend {
   margin: 4px 0;
 }
 
+/* ---- 資格一覧 ---- */
+.notice {
+  padding: 10px 14px;
+  border: 1px solid #f0c36d;
+  border-radius: 6px;
+  background: #fff8e1;
+  font-size: 0.9rem;
+}
+
+.category-title {
+  margin: 24px 0 0;
+  padding-bottom: 4px;
+  border-bottom: 2px solid var(--accent);
+  font-size: 1.2rem;
+}
+
+.difficulty {
+  margin: 4px 0;
+  color: #b8860b;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+}
+
+.cert-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+}
+
 /* ---- おすすめWebサイト ---- */
 .site-list {
   list-style: none;
