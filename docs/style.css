@@ -1,15 +1,19 @@
-/* 色の設定（main.py の COLOR_* と同じ値） */
+/* 色の設定（デザイン画像に合わせたティール系の配色） */
 :root {
-  --bg: #f5f7fa;
-  --panel: #ffffff;
-  --accent: #1565c0;
-  --accent-dark: #0d47a1;
-  --sub: #555555;
-  --border: #d0d7de;
+  --paper: #f4f6f4;        /* ページの背景 */
+  --mint: #e6f1ec;         /* ヒーローの背景 */
+  --card: #ffffff;         /* カードの背景 */
+  --teal: #0b7a6e;         /* アクセント（見出しのラベル・ボタン） */
+  --teal-dark: #075d54;    /* ボタンにマウスを載せたとき */
+  --ink: #13303a;          /* 見出しの文字 */
+  --ink-soft: #4a5d5a;     /* 補足の文字 */
+  --band: #123a40;         /* 確認クイズの背景 */
+  --line: #d5e2dd;         /* 枠線 */
   --correct: #1b7f3b;
-  --correct-bg: #c8e6c9;
-  --wrong: #c62828;
-  --wrong-bg: #ffcdd2;
+  --correct-bg: #d6f0de;
+  --wrong: #b3261e;
+  --wrong-bg: #fbe0dd;
+  --radius: 20px;
 }
 
 * {
@@ -18,75 +22,98 @@
 
 body {
   margin: 0;
-  background: var(--bg);
-  color: #222222;
-  font-family: "Yu Gothic UI", "Yu Gothic", "Meiryo", "Hiragino Sans", sans-serif;
-  line-height: 1.7;
+  /* 全幅の帯（ヒーロー・確認クイズ）が、スクロールバー分だけはみ出さないようにする */
+  overflow-x: clip;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Yu Gothic UI", "Yu Gothic", "Meiryo", "Hiragino Sans", "Noto Sans JP", sans-serif;
+  line-height: 1.75;
 }
 
 a {
-  color: var(--accent);
+  color: var(--teal);
 }
 
 /* ---- ヘッダー・フッター ---- */
 .site-header {
-  background: var(--panel);
-  border-bottom: 1px solid var(--border);
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
 }
 
 .site-header .inner {
-  max-width: 960px;
+  max-width: 1080px;
   margin: 0 auto;
-  padding: 12px 16px;
+  padding: 16px 24px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: space-between;
   gap: 8px 20px;
 }
 
 .brand {
-  font-size: 1.1rem;
+  color: var(--teal);
+  font-size: 1.05rem;
   font-weight: 700;
-  color: #222222;
+  letter-spacing: 0.04em;
   text-decoration: none;
 }
 
 .site-header nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 16px;
+  gap: 6px 18px;
 }
 
 .site-header nav a {
+  color: var(--ink);
+  font-size: 0.95rem;
+  font-weight: 700;
   text-decoration: none;
 }
 
+.site-header nav a:hover {
+  color: var(--teal);
+}
+
 footer {
-  max-width: 960px;
+  max-width: 1080px;
   margin: 0 auto;
-  padding: 16px 16px 40px;
-  color: var(--sub);
+  padding: 16px 24px 48px;
+  color: var(--ink-soft);
   font-size: 0.85rem;
 }
 
 /* ---- 共通の部品 ---- */
 main {
-  max-width: 960px;
+  max-width: 1080px;
   margin: 0 auto;
-  padding: 20px 16px 8px;
+  padding: 24px 24px 8px;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--teal);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.eyebrow-light {
+  color: #8fd3c4;
 }
 
 .card {
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 16px 20px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 22px;
   margin: 16px 0;
 }
 
 .sub {
-  color: var(--sub);
-  font-size: 0.9rem;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
 }
 
 .bold {
@@ -103,39 +130,59 @@ main {
   font-weight: 700;
 }
 
-.btn {
+h1,
+h2,
+h3 {
+  color: var(--ink);
+  line-height: 1.35;
+}
+
+/* 角丸の丸いボタン（デザインの「基本を学ぶ」など） */
+.btn,
+.btn-pill {
   display: inline-block;
-  padding: 8px 16px;
-  border: 1px solid var(--accent);
-  border-radius: 6px;
-  background: #ffffff;
-  color: var(--accent);
+  padding: 10px 22px;
+  border: 1px solid var(--teal);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--teal);
   font: inherit;
+  font-weight: 700;
   text-decoration: none;
   cursor: pointer;
 }
 
-.btn:hover {
-  background: #e3f2fd;
+.btn:hover,
+.btn-pill:hover {
+  background: #e3f2ee;
 }
 
-.btn.primary {
-  background: var(--accent);
+.btn.primary,
+.btn-pill {
+  background: var(--teal);
+  border-color: var(--teal);
   color: #ffffff;
 }
 
-.btn.primary:hover {
-  background: var(--accent-dark);
+.btn.primary:hover,
+.btn-pill:hover {
+  background: var(--teal-dark);
 }
 
-.btn:disabled {
+.btn:disabled,
+.btn-pill:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
 .btn.big {
-  padding: 12px 32px;
+  padding: 14px 40px;
   font-size: 1.1rem;
+}
+
+.btn-pill.small {
+  padding: 8px 18px;
+  font-size: 0.9rem;
 }
 
 /* 画面上部（戻るボタン・タイトル・補足） */
@@ -149,58 +196,201 @@ main {
 
 .page-head h1 {
   margin: 0;
-  font-size: 1.3rem;
+  font-size: 1.35rem;
 }
 
 .page-head .info {
   margin-left: auto;
-  color: var(--sub);
+  color: var(--ink-soft);
 }
 
-/* ---- メニュー ---- */
-.hero h1 {
-  margin: 8px 0 4px;
-  font-size: 1.8rem;
-}
-
-.guide ul {
-  padding-left: 1.2em;
-  margin: 0;
-}
-
-.menu-cards {
+/* ---- ホーム（ヒーロー） ---- */
+.home-hero {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
-  margin-top: 16px;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 32px;
+  margin: -24px calc(50% - 50vw) 0;
+  padding: 64px max(24px, calc(50vw - 540px)) 72px;
+  background: var(--mint);
 }
 
-.menu-card {
+.home-hero h1 {
+  margin: 4px 0 16px;
+  font-size: 2.4rem;
+  line-height: 1.3;
+}
+
+.hero-lead {
+  margin: 0 0 20px;
+  color: var(--ink-soft);
+  font-size: 1rem;
+}
+
+.hero-visual {
+  position: relative;
+  min-height: 300px;
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 30% 40%, rgba(60, 200, 180, 0.35), transparent 45%),
+    linear-gradient(135deg, #0c2a31 0%, #14474d 60%, #0b3a40 100%);
+  box-shadow: 18px 18px 0 #c8e0d7;
+}
+
+.hero-caption {
+  position: absolute;
+  left: 24px;
+  bottom: 20px;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* ---- ホームの入口カード ---- */
+.section {
+  margin-top: 48px;
+}
+
+.section h2 {
+  margin: 0 0 6px;
+  font-size: 1.5rem;
+}
+
+.section > .sub {
+  margin: 0 0 20px;
+}
+
+.entry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.entry-card {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding: 20px;
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  color: #222222;
+  gap: 8px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  color: var(--ink);
   text-decoration: none;
 }
 
-.menu-card:hover {
-  border-color: var(--accent);
+.entry-card:hover {
+  border-color: var(--teal);
 }
 
-.menu-card strong {
-  color: var(--accent);
-  font-size: 1.15rem;
+.entry-number {
+  color: var(--teal);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
 }
 
-.menu-card span {
-  color: var(--sub);
+.entry-card strong {
+  font-size: 1.2rem;
 }
 
-/* ---- レッスン一覧 ---- */
+.entry-note {
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+/* ---- 確認クイズ（濃い背景の帯） ---- */
+.quiz-band {
+  margin: 48px calc(50% - 50vw) 0;
+  padding: 64px max(24px, calc(50vw - 540px));
+  background: var(--band);
+  color: #ffffff;
+}
+
+.quiz-band-inner {
+  max-width: 720px;
+}
+
+.quiz-band h2.light {
+  margin: 0 0 6px;
+  color: #ffffff;
+  font-size: 1.6rem;
+}
+
+.light-sub {
+  margin: 0 0 24px;
+  color: #cfe5df;
+}
+
+.quick-card {
+  padding: 28px;
+  border-radius: 24px;
+  background: var(--card);
+  color: var(--ink);
+}
+
+.quick-question {
+  margin: 0 0 18px;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.quick-choices {
+  display: grid;
+  gap: 10px;
+}
+
+.quick-choice {
+  padding: 14px 18px;
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+
+.quick-choice:hover:not(:disabled) {
+  border-color: var(--teal);
+}
+
+.quick-choice:disabled {
+  cursor: default;
+}
+
+.quick-choice.is-correct {
+  border-color: var(--correct);
+  background: var(--correct-bg);
+}
+
+.quick-choice.is-wrong {
+  border-color: var(--wrong);
+  background: var(--wrong-bg);
+}
+
+.quick-feedback {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.quick-nav {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+/* ---- はじめての方へ ---- */
+.steps {
+  margin: 0;
+  padding-left: 1.4em;
+}
+
+.steps li {
+  margin: 6px 0;
+}
+
+/* ---- 下層の画面：レッスン・クイズ・資格・サイト ---- */
 .tabs {
   display: flex;
   flex-wrap: wrap;
@@ -209,14 +399,14 @@ main {
 }
 
 .tab {
-  padding: 6px 14px;
-  border: 1px solid var(--accent);
-  border-radius: 6px;
+  padding: 6px 16px;
+  border: 1px solid var(--teal);
+  border-radius: 999px;
   text-decoration: none;
 }
 
 .tab.active {
-  background: var(--accent);
+  background: var(--teal);
   color: #ffffff;
 }
 
@@ -228,9 +418,9 @@ main {
 
 .lesson-list li {
   margin: 8px 0;
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 8px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
 }
 
 .lesson-list a {
@@ -238,14 +428,14 @@ main {
   flex-wrap: wrap;
   align-items: baseline;
   gap: 4px 12px;
-  padding: 12px 16px;
-  color: #222222;
+  padding: 14px 18px;
+  color: var(--ink);
   text-decoration: none;
 }
 
 .lesson-list a:hover {
-  background: #e3f2fd;
-  border-radius: 8px;
+  background: #eef7f4;
+  border-radius: 16px;
 }
 
 .lesson-list strong {
@@ -255,32 +445,32 @@ main {
 .lesson-list .summary {
   flex-basis: 100%;
   margin: 0;
-  color: var(--sub);
+  color: var(--ink-soft);
   font-size: 0.9rem;
 }
 
 .lesson-id {
   font-weight: 700;
-  color: var(--accent);
+  color: var(--teal);
 }
 
 .category {
-  padding: 0 6px;
-  border-radius: 4px;
-  background: #e3f2fd;
-  font-size: 0.85rem;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: var(--mint);
+  color: var(--teal-dark);
+  font-size: 0.82rem;
 }
 
-/* ---- レッスン本文 ---- */
 .lesson-title {
   margin: 0 0 8px;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
 }
 
 .summary-box {
-  padding: 10px 14px;
-  border-radius: 6px;
-  background: #e3f2fd;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: var(--mint);
   font-weight: 700;
 }
 
@@ -301,13 +491,12 @@ main {
   margin-top: 8px;
 }
 
-/* ---- クイズ設定 ---- */
 fieldset {
   margin: 12px 0;
-  padding: 12px 20px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: #ffffff;
+  padding: 14px 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
 }
 
 legend {
@@ -326,11 +515,10 @@ legend {
 }
 
 .center {
-  margin: 16px 0;
+  margin: 20px 0;
   text-align: center;
 }
 
-/* ---- クイズ本体 ---- */
 .quiz .question {
   margin: 6px 0 14px;
   font-size: 1.2rem;
@@ -338,14 +526,14 @@ legend {
 
 .choices {
   display: grid;
-  gap: 8px;
+  gap: 10px;
 }
 
 .choice {
-  padding: 10px 14px;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  background: #ffffff;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
   color: inherit;
   font: inherit;
   text-align: left;
@@ -353,8 +541,8 @@ legend {
 }
 
 .choice:hover:not(:disabled) {
-  border-color: var(--accent);
-  background: #f0f7ff;
+  border-color: var(--teal);
+  background: #f0f8f5;
 }
 
 .choice:disabled {
@@ -374,7 +562,7 @@ legend {
 .feedback {
   margin-top: 14px;
   padding-top: 12px;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--line);
 }
 
 .verdict {
@@ -385,55 +573,57 @@ legend {
 .quiz-nav {
   display: flex;
   justify-content: flex-end;
-  margin-top: 12px;
+  margin-top: 14px;
 }
 
-/* ---- 結果画面 ---- */
 .big-score {
   font-size: 1.4rem;
   font-weight: 700;
 }
 
 .review {
-  padding: 10px 0;
-  border-bottom: 1px solid var(--border);
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
 }
 
 .review p {
   margin: 4px 0;
 }
 
-/* ---- 資格一覧 ---- */
+/* 試験・資格の一覧 */
 .notice {
-  padding: 10px 14px;
-  border: 1px solid #f0c36d;
-  border-radius: 6px;
-  background: #fff8e1;
-  font-size: 0.9rem;
+  padding: 12px 16px;
+  border: 1px solid #e3c98a;
+  border-radius: 14px;
+  background: #fdf6e3;
+  font-size: 0.92rem;
 }
 
 .category-title {
-  margin: 24px 0 0;
-  padding-bottom: 4px;
-  border-bottom: 2px solid var(--accent);
-  font-size: 1.2rem;
+  margin: 28px 0 0;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--teal);
+  font-size: 1.25rem;
 }
 
 .difficulty {
   margin: 4px 0;
-  color: #b8860b;
+  color: #b07d0b;
   font-size: 1.1rem;
   letter-spacing: 0.1em;
+}
+
+.spec {
+  padding-left: 1.2em;
 }
 
 .cert-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 12px;
+  margin-top: 14px;
 }
 
-/* ---- おすすめWebサイト ---- */
 .site-list {
   list-style: none;
   padding: 0;
@@ -450,7 +640,7 @@ legend {
 
 .level {
   margin-left: 6px;
-  color: var(--sub);
+  color: var(--ink-soft);
   font-size: 0.9rem;
 }
 
@@ -458,12 +648,38 @@ legend {
   word-break: break-all;
 }
 
-@media (max-width: 600px) {
-  .lesson-title {
-    font-size: 1.3rem;
+/* ---- スマホ幅 ---- */
+@media (max-width: 760px) {
+  .home-hero {
+    grid-template-columns: 1fr;
+    padding: 40px 16px 48px;
+    margin: -24px -16px 0;
   }
 
-  .hero h1 {
-    font-size: 1.5rem;
+  .home-hero h1 {
+    font-size: 1.9rem;
+  }
+
+  .hero-visual {
+    min-height: 200px;
+  }
+
+  .quiz-band {
+    padding: 48px 16px;
+    margin: 40px -16px 0;
+  }
+
+  main,
+  footer {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .site-header .inner {
+    padding: 14px 16px;
+  }
+
+  .lesson-title {
+    font-size: 1.35rem;
   }
 }
