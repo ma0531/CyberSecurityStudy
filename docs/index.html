@@ -7,6 +7,21 @@
   <meta name="description" content="初級・中級・上級のレッスンと4択クイズで、サイバーセキュリティを段階的に学べる学習サイトです。">
   <!-- 空のアイコンを指定して、ファビコンの 404 を防ぐ -->
   <link rel="icon" href="data:,">
+  <!-- Google アナリティクス（公開サイトで開いたときだけ読み込む。手元での確認やテストは計測しない） -->
+  <script>
+    window.GA_MEASUREMENT_ID = "G-C5PGS1FVLE";
+    if (location.hostname === "ma0531.github.io") {
+      var gaScript = document.createElement("script");
+      gaScript.async = true;
+      gaScript.src = "https://www.googletagmanager.com/gtag/js?id=" + window.GA_MEASUREMENT_ID;
+      document.head.appendChild(gaScript);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { window.dataLayer.push(arguments); };
+      window.gtag("js", new Date());
+      // ページビューは、画面を切り替えるたびに app.js から送るため、ここでの自動送信は止める
+      window.gtag("config", window.GA_MEASUREMENT_ID, { send_page_view: false });
+    }
+  </script>
   <!-- 読みやすい日本語フォント（読み込めない環境では、端末のフォントで表示される） -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,6 +48,7 @@
   <footer>
     <p>攻撃手法は「仕組みと対策を理解する」ための説明です。実際に試すのは、自分の環境や許可された演習環境（CTFなど）だけにしてください。</p>
     <p>内容は一般的な知識に基づいています。最新の脅威は <a href="#/websites">おすすめWebサイト</a> で確認してください。</p>
+    <p>このサイトでは、閲覧状況を把握するために Google アナリティクスを使っています。データは Cookie を使って匿名で集められ、個人を特定するものではありません。詳しくは <a href="https://policies.google.com/technologies/partner-sites?hl=ja" target="_blank" rel="noopener noreferrer">Google のポリシー</a> をご覧ください。</p>
   </footer>
 
   <!-- 学習データ（tools/build_site.py で生成）と、画面の処理 -->

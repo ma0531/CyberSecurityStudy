@@ -726,9 +726,23 @@
     );
   }
 
+  // ---- Google アナリティクス ----
+  // 画面を切り替えるたびに閲覧を送る。gtag は公開サイトでのみ用意される（index.html を参照）
+  // 「#/lessons/beginner」は「/CyberSecurityStudy/lessons/beginner」の形にして、レポートで区別しやすくする
+  function trackPageView() {
+    if (typeof window.gtag !== "function") return;
+    const screenPath = location.hash.replace(/^#\/?/, "");
+    const basePath = location.pathname.replace(/index\.html$/, "").replace(/\/?$/, "/");
+    window.gtag("event", "page_view", {
+      page_location: location.origin + basePath + screenPath,
+      page_title: document.title,
+    });
+  }
+
   // ---- ハッシュに応じて画面を選ぶ ----
   function route() {
     quizActive = false;
+    trackPageView();
     const [name, arg] = location.hash.replace(/^#\/?/, "").split("/").filter(Boolean);
     switch (name) {
       case undefined:
