@@ -103,8 +103,10 @@
   }
 
   // 画面の中身を差し替え、表示位置を上に戻す
+  // 配列（グループごとの複数要素など）と null（省略した部品）も受け付けるように平らにする
   function render(...nodes) {
-    view.replaceChildren(...nodes);
+    const items = nodes.flat().filter((node) => node !== null && node !== undefined && node !== false);
+    view.replaceChildren(...items);
     window.scrollTo(0, 0);
   }
 
