@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>サイバーセキュリティ学習</title>
+  <meta name="description" content="初級・中級・上級のレッスンと4択クイズで、サイバーセキュリティを段階的に学べる学習サイトです。">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a class="brand" href="#/">サイバーセキュリティ学習</a>
+      <nav>
+        <a href="#/lessons/beginner">レッスン</a>
+        <a href="#/quiz">クイズ</a>
+        <a href="#/websites">おすすめWebサイト</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="view">
+    <p class="sub">読み込み中…</p>
+  </main>
+
+  <footer>
+    <p>攻撃手法は「仕組みと対策を理解する」ための説明です。実際に試すのは、自分の環境や許可された演習環境（CTFなど）だけにしてください。</p>
+    <p>内容は一般的な知識に基づいています。最新の脅威は <a href="#/websites">おすすめWebサイト</a> で確認してください。</p>
+  </footer>
+
+  <!-- 学習データ（tools/build_site.py で生成）と、画面の処理 -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

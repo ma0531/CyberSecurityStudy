@@ -1,0 +1,439 @@
+/* 色の設定（main.py の COLOR_* と同じ値） */
+:root {
+  --bg: #f5f7fa;
+  --panel: #ffffff;
+  --accent: #1565c0;
+  --accent-dark: #0d47a1;
+  --sub: #555555;
+  --border: #d0d7de;
+  --correct: #1b7f3b;
+  --correct-bg: #c8e6c9;
+  --wrong: #c62828;
+  --wrong-bg: #ffcdd2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: #222222;
+  font-family: "Yu Gothic UI", "Yu Gothic", "Meiryo", "Hiragino Sans", sans-serif;
+  line-height: 1.7;
+}
+
+a {
+  color: var(--accent);
+}
+
+/* ---- ヘッダー・フッター ---- */
+.site-header {
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header .inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 12px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 20px;
+}
+
+.brand {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #222222;
+  text-decoration: none;
+}
+
+.site-header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+.site-header nav a {
+  text-decoration: none;
+}
+
+footer {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 16px 16px 40px;
+  color: var(--sub);
+  font-size: 0.85rem;
+}
+
+/* ---- 共通の部品 ---- */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px 16px 8px;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 16px 0;
+}
+
+.sub {
+  color: var(--sub);
+  font-size: 0.9rem;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.good {
+  color: var(--correct);
+  font-weight: 700;
+}
+
+.bad {
+  color: var(--wrong);
+  font-weight: 700;
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  background: #ffffff;
+  color: var(--accent);
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #e3f2fd;
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.btn.primary:hover {
+  background: var(--accent-dark);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn.big {
+  padding: 12px 32px;
+  font-size: 1.1rem;
+}
+
+/* 画面上部（戻るボタン・タイトル・補足） */
+.page-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.page-head h1 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.page-head .info {
+  margin-left: auto;
+  color: var(--sub);
+}
+
+/* ---- メニュー ---- */
+.hero h1 {
+  margin: 8px 0 4px;
+  font-size: 1.8rem;
+}
+
+.guide ul {
+  padding-left: 1.2em;
+  margin: 0;
+}
+
+.menu-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.menu-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: #222222;
+  text-decoration: none;
+}
+
+.menu-card:hover {
+  border-color: var(--accent);
+}
+
+.menu-card strong {
+  color: var(--accent);
+  font-size: 1.15rem;
+}
+
+.menu-card span {
+  color: var(--sub);
+}
+
+/* ---- レッスン一覧 ---- */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.tab {
+  padding: 6px 14px;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.tab.active {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.lesson-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lesson-list li {
+  margin: 8px 0;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.lesson-list a {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+  padding: 12px 16px;
+  color: #222222;
+  text-decoration: none;
+}
+
+.lesson-list a:hover {
+  background: #e3f2fd;
+  border-radius: 8px;
+}
+
+.lesson-list strong {
+  flex: 1 1 auto;
+}
+
+.lesson-list .summary {
+  flex-basis: 100%;
+  margin: 0;
+  color: var(--sub);
+  font-size: 0.9rem;
+}
+
+.lesson-id {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.category {
+  padding: 0 6px;
+  border-radius: 4px;
+  background: #e3f2fd;
+  font-size: 0.85rem;
+}
+
+/* ---- レッスン本文 ---- */
+.lesson-title {
+  margin: 0 0 8px;
+  font-size: 1.5rem;
+}
+
+.summary-box {
+  padding: 10px 14px;
+  border-radius: 6px;
+  background: #e3f2fd;
+  font-weight: 700;
+}
+
+.points {
+  list-style: none;
+  padding-left: 0;
+}
+
+.points li {
+  font-weight: 700;
+}
+
+.lesson-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* ---- クイズ設定 ---- */
+fieldset {
+  margin: 12px 0;
+  padding: 12px 20px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+legend {
+  padding: 0 6px;
+  font-weight: 700;
+}
+
+.radio {
+  display: block;
+  padding: 4px 0;
+}
+
+.radio.inline {
+  display: inline-block;
+  margin-right: 18px;
+}
+
+.center {
+  margin: 16px 0;
+  text-align: center;
+}
+
+/* ---- クイズ本体 ---- */
+.quiz .question {
+  margin: 6px 0 14px;
+  font-size: 1.2rem;
+}
+
+.choices {
+  display: grid;
+  gap: 8px;
+}
+
+.choice {
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #ffffff;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.choice:hover:not(:disabled) {
+  border-color: var(--accent);
+  background: #f0f7ff;
+}
+
+.choice:disabled {
+  cursor: default;
+}
+
+.choice.is-correct {
+  border-color: var(--correct);
+  background: var(--correct-bg);
+}
+
+.choice.is-wrong {
+  border-color: var(--wrong);
+  background: var(--wrong-bg);
+}
+
+.feedback {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.verdict {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.quiz-nav {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+/* ---- 結果画面 ---- */
+.big-score {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.review {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.review p {
+  margin: 4px 0;
+}
+
+/* ---- おすすめWebサイト ---- */
+.site-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.site-list li {
+  margin-bottom: 14px;
+}
+
+.site-list p {
+  margin: 2px 0;
+}
+
+.level {
+  margin-left: 6px;
+  color: var(--sub);
+  font-size: 0.9rem;
+}
+
+.url {
+  word-break: break-all;
+}
+
+@media (max-width: 600px) {
+  .lesson-title {
+    font-size: 1.3rem;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+}
