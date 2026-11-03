@@ -591,6 +591,8 @@
               h("p", { class: "sub" }, `対象：${item.target}`),
               h("p", { class: "sub" }, `出題形式：${item.format}`),
               h("p", { class: "difficulty", title: "☆が多いほど難しい（目安）" }, `難易度：${"☆".repeat(item.difficulty)}`),
+              h("h4", {}, "受験方法"),
+              h("ul", {}, item.exam_method.map((text) => h("li", {}, text))),
               h("h4", {}, "申し込みの流れ"),
               h("ol", {}, item.how_to_apply.map((step) => h("li", {}, step))),
               h(
