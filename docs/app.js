@@ -157,31 +157,131 @@
       "「資格一覧」で、関連する資格の内容と受験方法、申し込みサイトを確認できます。",
       "「おすすめWebサイト」で、最新の攻撃手口や注意喚起をチェックしましょう。",
     ];
-    const menuCard = (href, title, note) =>
-      h("a", { class: "menu-card", href }, h("strong", {}, title), h("span", {}, note));
+    // 入口のカード（番号・見出し・説明）
+    const entryCard = (number, href, title, note) =>
+      h(
+        "a",
+        { class: "entry-card", href },
+        h("span", { class: "entry-number" }, number),
+        h("strong", {}, title),
+        h("span", { class: "entry-note" }, note)
+      );
 
     render(
+      // ヒーロー（画面の一番上）
       h(
         "section",
-        { class: "hero" },
-        h("h1", {}, "サイバーセキュリティ学習"),
-        h("p", { class: "sub" }, `初級・中級・上級　レッスン ${lessonCount} 件 ／ 問題 ${totalQuestions} 問`)
+        { class: "home-hero" },
+        h(
+          "div",
+          { class: "hero-text" },
+          h("p", { class: "eyebrow" }, "DIGITAL SAFETY, EVERY DAY"),
+          h("h1", {}, "今日から始める、", h("br"), "ITセキュリティ。"),
+          h("p", { class: "hero-lead" }, "むずかしい知識より、まずは毎日の小さな習慣から。大切な情報を守るための基本を、わかりやすく学びましょう。"),
+          h("p", { class: "sub" }, `レッスン ${lessonCount} 件 ／ 問題 ${totalQuestions} 問`),
+          h(
+            "button",
+            {
+              class: "btn-pill",
+              type: "button",
+              onclick: () => document.getElementById("entries").scrollIntoView({ behavior: "smooth" }),
+            },
+            "基本を学ぶ ↓"
+          )
+        ),
+        // 写真の代わりの飾り。画像を用意したら、ここに <img> を入れてください
+        h("div", { class: "hero-visual", "aria-hidden": "true" }, h("span", { class: "hero-caption" }, "知ることが、守ることの第一歩。"))
       ),
+      // 入口（3つのカード）
       h(
         "section",
-        { class: "card guide" },
+        { class: "section", id: "entries" },
+        h("p", { class: "eyebrow" }, "MENU"),
+        h("h2", {}, "まず始めたいことを選ぶ"),
+        h("p", { class: "sub" }, "ちょっとした意識の変化が、日々のリスクを減らします。"),
+        h(
+          "div",
+          { class: "entry-grid" },
+          entryCard("01 / LESSON", "#/lessons/beginner", "レッスンで学ぶ", "知識（初級～上級）"),
+          entryCard("02 / QUIZ", "#/quiz", "クイズに挑戦", "初級から上級の問題から出題"),
+          entryCard("03 / CERTIFICATION", "#/certifications", "資格一覧", "関連する資格一覧と受験方法と申し込みサイト")
+        )
+      ),
+      // 確認クイズ（実際の問題を1問ずつ出題）
+      h(
+        "section",
+        { class: "quiz-band" },
+        h(
+          "div",
+          { class: "quiz-band-inner" },
+          h("p", { class: "eyebrow eyebrow-light" }, "QUICK CHECK"),
+          h("h2", { class: "light" }, "確認クイズ"),
+          h("p", { class: "light-sub" }, "学んだことを、1問でおさらいしましょう。"),
+          quickQuizCard()
+        )
+      ),
+      // はじめての方へ
+      h(
+        "section",
+        { class: "section" },
         h("h2", {}, "はじめての方へ"),
-        h("ul", {}, steps.map((step, i) => h("li", {}, `${"①②③④⑤"[i]} ${step}`)))
-      ),
-      h(
-        "section",
-        { class: "menu-cards" },
-        menuCard("#/lessons/beginner", "レッスンで学ぶ", "知識（初級～上級）"),
-        menuCard("#/quiz", "クイズに挑戦", "初級から上級の問題から出題"),
-        menuCard("#/certifications", "資格一覧", "関連する資格一覧と受験方法と申し込みサイト"),
-        menuCard("#/websites", "おすすめWebサイト", "最新情報・学習サイトの紹介")
+        h("ol", { class: "steps" }, steps.map((step) => h("li", {}, step)))
       )
     );
+  }
+
+  // 確認クイズのカード。全問題からランダムに1問出題し、「別の問題」で入れ替える
+  function quickQuizCard() {
+    const pool = Object.keys(LEVELS).flatMap((lv) => DATA.questions[lv]);
+    const box = h("div", { class: "quick-card" });
+    let current = null;
+    let picked = null; // 選んだ選択肢の番号（未回答は null）
+
+    // 問題と選択肢を描き直す
+    function draw() {
+      const answered = picked !== null;
+      // null の部品は入れない（replaceChildren は null を文字として追加してしまうため）
+      const parts = [
+        h("p", { class: "quick-question" }, current.question),
+        h(
+          "div",
+          { class: "quick-choices" },
+          current.choices.map((choice, i) => {
+            let cls = "quick-choice";
+            if (answered && i === current.answer) cls += " is-correct";
+            else if (answered && i === picked) cls += " is-wrong";
+            return h("button", { class: cls, type: "button", disabled: answered, onclick: () => answer(i) }, choice);
+          })
+        ),
+        answered
+          ? h(
+              "div",
+              { class: "quick-feedback" },
+              picked === current.answer
+                ? h("p", { class: "verdict good" }, "○ 正解！")
+                : h("p", { class: "verdict bad" }, "× 不正解"),
+              h("p", {}, current.explanation)
+            )
+          : null,
+        h("div", { class: "quick-nav" }, h("button", { class: "btn-pill small", type: "button", onclick: next }, "別の問題")),
+      ];
+      box.replaceChildren(...parts.filter((part) => part !== null));
+    }
+
+    function answer(i) {
+      if (picked !== null) return;
+      picked = i;
+      draw();
+    }
+
+    function next() {
+      current = shuffleChoices(pool[Math.floor(Math.random() * pool.length)]);
+      picked = null;
+      draw();
+    }
+
+    next();
+    return box;
   }
 
   // ---- レッスン一覧画面 ----
