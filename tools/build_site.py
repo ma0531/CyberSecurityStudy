@@ -35,6 +35,7 @@ def main():
         "lessons": {lv: load_json(data_dir, f"lessons_{lv}.json") for lv in LEVELS},
         "questions": {lv: load_json(data_dir, f"questions_{lv}.json")["questions"] for lv in LEVELS},
         "websites": load_json(data_dir, "websites.json"),
+        "exams": load_json(data_dir, "exams.json"),
     }
 
     OUT_PATH.parent.mkdir(exist_ok=True)

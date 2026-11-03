@@ -403,6 +403,22 @@ legend {
   margin: 4px 0;
 }
 
+/* ---- 試験の概要 ---- */
+.notice {
+  padding: 10px 14px;
+  border: 1px solid #f0c36d;
+  border-radius: 6px;
+  background: #fff8e1;
+  font-size: 0.9rem;
+}
+
+.exam-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+}
+
 /* ---- おすすめWebサイト ---- */
 .site-list {
   list-style: none;

@@ -37,6 +37,14 @@
   }
   const totalQuestions = Object.values(questionCounts).reduce((sum, n) => sum + n, 0);
 
+  // 問題を ID で引けるようにする（試験の演習では、問題の並びを本試験に近く固定するため）
+  const questionById = {};
+  for (const level of Object.keys(LEVELS)) {
+    DATA.questions[level].forEach((q) => {
+      questionById[q.id] = { ...q, level };
+    });
+  }
+
   // ---- 出題の仕組み（data_loader.py の shuffle_choices / build_quiz と同じ考え方） ----
 
   // 配列をランダムに並べ替えた新しい配列を返す（Fisher-Yates 法）
@@ -177,6 +185,7 @@
         { class: "menu-cards" },
         menuCard("#/lessons/beginner", "レッスンで学ぶ", "基礎知識を読んで学ぶ"),
         menuCard("#/quiz", "クイズに挑戦", `全 ${totalQuestions} 問からランダム出題`),
+        menuCard("#/exams", "試験の概要・過去問演習", "2つの国家試験の概要と演習問題"),
         menuCard("#/websites", "おすすめWebサイト", "最新情報・学習サイトの紹介")
       )
     );
@@ -365,7 +374,10 @@
 
   // 問題を用意してクイズを始める
   function startQuiz(params) {
-    const questions = buildQuiz(params.level, params.lessonId, params.count);
+    // 試験の演習は問題の順番を固定し、選択肢の並びだけをシャッフルする
+    const questions = params.questionIds
+      ? params.questionIds.map((id) => shuffleChoices(questionById[id]))
+      : buildQuiz(params.level, params.lessonId, params.count);
     if (!questions.length) {
       alert("出題できる問題がありません。");
       return;
@@ -570,6 +582,43 @@
     );
   }
 
+  // ---- 試験の概要と過去問演習 ----
+  function renderExams() {
+    render(
+      pageHeader({ title: "試験の概要・過去問演習", backLabel: "← メニュー" }),
+      h("p", { class: "notice" }, DATA.exams.description),
+      DATA.exams.exams.map((exam) =>
+        h(
+          "section",
+          { class: "card" },
+          h("h2", {}, exam.name),
+          h("ul", {}, exam.overview.map((text) => h("li", {}, text))),
+          h(
+            "div",
+            { class: "exam-actions" },
+            h(
+              "button",
+              {
+                class: "btn primary",
+                type: "button",
+                onclick: () =>
+                  startQuiz({
+                    title: `${exam.name}（演習）`,
+                    level: "exam",
+                    questionIds: exam.question_ids,
+                    count: null,
+                    exitHash: "#/exams",
+                  }),
+              },
+              `演習に挑戦する（${exam.question_ids.length} 問）`
+            ),
+            h("a", { class: "btn", href: exam.official_url, target: "_blank", rel: "noopener noreferrer" }, "IPA 公式ページ")
+          )
+        )
+      )
+    );
+  }
+
   // 存在しないハッシュを開いたときの表示
   function renderNotFound() {
     render(
@@ -593,6 +642,8 @@
         if (arg === "run" && quiz && !quiz.finished) return renderQuiz();
         if (arg === "result" && quiz && quiz.finished) return renderResult();
         return renderQuizSetup();
+      case "exams":
+        return renderExams();
       case "websites":
         return renderWebsites();
       default:
