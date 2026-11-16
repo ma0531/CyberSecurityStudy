@@ -158,6 +158,36 @@
       "key_points": ["Attacks that go through weaker partners or distribution routes", "Double-extortion ransomware", "VPN and RDP are common entry points", "Check current trends in IPA's 10 Major Security Threats"],
       "keywords": ["supply chain attack", "typosquatting", "double extortion", "ransomware", "10 Major Security Threats"],
       "reference_url": "https://www.ipa.go.jp/security/10threats/"
+    },
+    {
+      "id": "A11",
+      "category": "Design",
+      "title": "OAuth 2.0 and OpenID Connect",
+      "summary": "The mechanisms behind \"sign in with another service's account\" and permission to use APIs, and how to use them safely.",
+      "content": [
+        "OAuth 2.0 is a framework for authorization. It gives an app limited access to an API (an access token) without handing the user's password to the app.",
+        "OpenID Connect (OIDC) is a specification that adds authentication on top of OAuth 2.0. It issues an ID token (in JWT format) that says who the user is. Using only an access token to identify the user is a misuse.",
+        "The current recommendation is the authorization code flow combined with PKCE. PKCE stops an attacker from exchanging an intercepted authorization code for tokens. The implicit flow is not recommended.",
+        "Validate the redirect URI by exact match against the one registered in advance, and prevent CSRF with the state parameter. Loose matching leads to authorization codes or tokens being intercepted.",
+        "The party that receives a JWT verifies the signature, the issuer (iss), the audience (aud) and the expiry (exp). It fixes the algorithm on its own side and does not leave it to the token's header (to prevent attacks such as alg=none)."
+      ],
+      "key_points": ["OAuth 2.0 = authorization, OpenID Connect = authentication", "Use the authorization code flow with PKCE", "Exact-match redirect URIs, and state against CSRF", "Verify a JWT's signature, iss, aud and exp"],
+      "keywords": ["OAuth 2.0", "OpenID Connect", "PKCE", "access token", "ID token", "JWT"]
+    },
+    {
+      "id": "A12",
+      "category": "Cloud",
+      "title": "Container and Kubernetes security",
+      "summary": "Containers are less isolated than virtual machines, so you protect three things: the image, the runtime settings and the platform.",
+      "content": [
+        "Containers share the host's OS kernel. Because they are less isolated than virtual machines, a kernel vulnerability or a dangerous setting can let an attacker break out of the container to the host (a container escape).",
+        "Images: use a trusted, minimal base image, scan for vulnerabilities and verify signatures. Do not put passwords or API keys in an image.",
+        "Runtime: run as a non-root user, avoid privileged mode and mounting host directories, and make the root file system read-only.",
+        "Kubernetes: apply least privilege with RBAC, limit communication between Pods to what is needed with network policies, and reject Pods with dangerous settings through admission control. Encrypt Secrets at rest.",
+        "It is also important not to expose the API server or management consoles to the internet unprotected, and to collect audit logs."
+      ],
+      "key_points": ["Containers share the host's kernel", "Images: minimal, scanned and signature-verified", "Run as non-root and without privileges", "RBAC, network policies and admission control"],
+      "keywords": ["container", "Kubernetes", "container escape", "RBAC", "network policy", "image scanning"]
     }
   ]
 }

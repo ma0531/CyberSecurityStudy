@@ -181,6 +181,36 @@
       ],
       "key_points": ["Display names can be faked", "Watch for double extensions and macros", "Show file name extensions", "Use BCC for mass mailings"],
       "keywords": ["attachment", "file extension", "double extension", "macro", "BCC", "misdirected email"]
+    },
+    {
+      "id": "B13",
+      "category": "Defenses",
+      "title": "Using generative AI services safely",
+      "summary": "Generative AI that writes text or creates images is useful, but you need to be careful about what you enter and how far you trust its answers.",
+      "content": [
+        "Depending on the service's settings, what you enter into a generative AI may be stored or used to train the AI. Do not enter personal information or company secrets.",
+        "AI answers can contain plausible-sounding mistakes (hallucinations). Check important matters against another source, such as an official site.",
+        "Misuse of generative AI has made it easier to produce phishing emails in natural language and fake audio and video that look and sound real (deepfakes). You can no longer spot a fake just by whether the wording is unnatural.",
+        "Even if a call asking for money sounds like a family member or your boss, hang up and call back on a number you already know to check.",
+        "When using it for work or school, follow the rules that have been set (which services you may use and what information you may enter)."
+      ],
+      "key_points": ["Do not enter personal information or secrets", "Check answers against another source", "Voices and videos can be faked too", "For a sudden request for money, call back to check"],
+      "keywords": ["generative AI", "hallucination", "deepfake", "personal information", "training data"]
+    },
+    {
+      "id": "B14",
+      "category": "Authentication",
+      "title": "Passkeys and phishing-resistant authentication",
+      "summary": "Verification codes can also be stolen on fake sites. Passkeys are a newer way to sign in that does not work on fake sites.",
+      "content": [
+        "Verification codes sent by SMS or email can be defeated by a method in which a fake site gets you to enter the code and uses it on the real site right away (real-time phishing).",
+        "A passkey lets you sign in, instead of with a password, with a private key stored on your device and by unlocking the screen with a fingerprint, your face or a PIN.",
+        "A passkey is tied to the domain of the site where it was registered, so it cannot be used on a fake site that merely looks the same. This is why it resists phishing.",
+        "The private key is never sent off the device, and only the public key is stored by the site. Even if the site leaks data, no secret that can be used to sign in is leaked.",
+        "In case your device is lost or breaks, prepare a way to recover, such as making passkeys available on more than one device and keeping recovery codes somewhere safe."
+      ],
+      "key_points": ["A verification code entered on a fake site is stolen too", "Passkeys do not work on fake sites", "The private key never leaves the device", "Prepare a way to recover"],
+      "keywords": ["passkey", "FIDO2", "real-time phishing", "authenticator app", "recovery codes"]
     }
   ]
 }

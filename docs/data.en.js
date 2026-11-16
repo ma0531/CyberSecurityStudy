@@ -311,6 +311,58 @@ window.CYBER_DATA = {
       "BCC",
       "misdirected email"
      ]
+    },
+    {
+     "id": "B13",
+     "category": "Defenses",
+     "title": "Using generative AI services safely",
+     "summary": "Generative AI that writes text or creates images is useful, but you need to be careful about what you enter and how far you trust its answers.",
+     "content": [
+      "Depending on the service's settings, what you enter into a generative AI may be stored or used to train the AI. Do not enter personal information or company secrets.",
+      "AI answers can contain plausible-sounding mistakes (hallucinations). Check important matters against another source, such as an official site.",
+      "Misuse of generative AI has made it easier to produce phishing emails in natural language and fake audio and video that look and sound real (deepfakes). You can no longer spot a fake just by whether the wording is unnatural.",
+      "Even if a call asking for money sounds like a family member or your boss, hang up and call back on a number you already know to check.",
+      "When using it for work or school, follow the rules that have been set (which services you may use and what information you may enter)."
+     ],
+     "key_points": [
+      "Do not enter personal information or secrets",
+      "Check answers against another source",
+      "Voices and videos can be faked too",
+      "For a sudden request for money, call back to check"
+     ],
+     "keywords": [
+      "generative AI",
+      "hallucination",
+      "deepfake",
+      "personal information",
+      "training data"
+     ]
+    },
+    {
+     "id": "B14",
+     "category": "Authentication",
+     "title": "Passkeys and phishing-resistant authentication",
+     "summary": "Verification codes can also be stolen on fake sites. Passkeys are a newer way to sign in that does not work on fake sites.",
+     "content": [
+      "Verification codes sent by SMS or email can be defeated by a method in which a fake site gets you to enter the code and uses it on the real site right away (real-time phishing).",
+      "A passkey lets you sign in, instead of with a password, with a private key stored on your device and by unlocking the screen with a fingerprint, your face or a PIN.",
+      "A passkey is tied to the domain of the site where it was registered, so it cannot be used on a fake site that merely looks the same. This is why it resists phishing.",
+      "The private key is never sent off the device, and only the public key is stored by the site. Even if the site leaks data, no secret that can be used to sign in is leaked.",
+      "In case your device is lost or breaks, prepare a way to recover, such as making passkeys available on more than one device and keeping recovery codes somewhere safe."
+     ],
+     "key_points": [
+      "A verification code entered on a fake site is stolen too",
+      "Passkeys do not work on fake sites",
+      "The private key never leaves the device",
+      "Prepare a way to recover"
+     ],
+     "keywords": [
+      "passkey",
+      "FIDO2",
+      "real-time phishing",
+      "authenticator app",
+      "recovery codes"
+     ]
     }
    ]
   },
@@ -628,6 +680,59 @@ window.CYBER_DATA = {
       "Basic Act on Cybersecurity",
       "CTF"
      ]
+    },
+    {
+     "id": "I13",
+     "category": "Networking",
+     "title": "Email sender authentication (SPF, DKIM and DMARC)",
+     "summary": "Mechanisms that let the receiving side check whether an email was sent from a legitimate server for the sender's domain.",
+     "content": [
+      "The sender (From) of an email is easy to forge. Sender authentication lets the receiving side check whether an email was sent from a legitimate server for that domain.",
+      "SPF: the domain's DNS lists the IP addresses of the servers allowed to send mail for the domain, and the receiver compares the sending IP address with that list.",
+      "DKIM: the sending server adds a digital signature to the email, and the receiver verifies it with a public key published in DNS. This also confirms that the email was not altered on the way.",
+      "DMARC: checks that the domain authenticated by SPF or DKIM matches the domain in the From address. The domain owner can declare how failing mail should be handled (none, quarantine or reject) and can receive reports on the results.",
+      "What sender authentication prevents is spoofing that uses your exact domain. It does not stop mail from a different domain with a similar name, or from a legitimate account that has been taken over."
+     ],
+     "key_points": [
+      "SPF = checking the sending IP address",
+      "DKIM = verifying a digital signature",
+      "DMARC = alignment with From, and a declared policy for failures",
+      "It does not stop a different domain with a similar name"
+     ],
+     "keywords": [
+      "SPF",
+      "DKIM",
+      "DMARC",
+      "spoofed email",
+      "DNS"
+     ]
+    },
+    {
+     "id": "I14",
+     "category": "Networking",
+     "title": "Wireless LAN security (WPA2 and WPA3)",
+     "summary": "Anyone can intercept radio signals, so the choice of encryption and authentication method matters for a wireless LAN.",
+     "content": [
+      "Anyone within range can intercept a wireless LAN, so encryption and authentication are essential. The old WEP method can be cracked in a short time and must not be used.",
+      "With WPA2-Personal (a pre-shared key), if the exchange at connection time (the four-way handshake) is captured, the password can be brute-forced offline. A long, hard-to-guess password is needed.",
+      "WPA3-Personal uses a method called SAE, which makes offline brute-forcing from captured data difficult.",
+      "For organizations, the enterprise method that authenticates each user (IEEE 802.1X, using an authentication server) is a better fit. When someone leaves, there is no shared password to change.",
+      "Separate the guest network from the internal one, turn off weak features such as the WPS PIN method, and keep the router's firmware up to date."
+     ],
+     "key_points": [
+      "Do not use WEP",
+      "Use a long password with WPA2-Personal",
+      "WPA3 (SAE) resists offline brute-forcing",
+      "Use 802.1X in organizations and separate the guest network"
+     ],
+     "keywords": [
+      "WPA2",
+      "WPA3",
+      "SAE",
+      "IEEE 802.1X",
+      "WEP",
+      "WPS"
+     ]
     }
    ]
   },
@@ -909,6 +1014,237 @@ window.CYBER_DATA = {
       "10 Major Security Threats"
      ],
      "reference_url": "https://www.ipa.go.jp/security/10threats/"
+    },
+    {
+     "id": "A11",
+     "category": "Design",
+     "title": "OAuth 2.0 and OpenID Connect",
+     "summary": "The mechanisms behind \"sign in with another service's account\" and permission to use APIs, and how to use them safely.",
+     "content": [
+      "OAuth 2.0 is a framework for authorization. It gives an app limited access to an API (an access token) without handing the user's password to the app.",
+      "OpenID Connect (OIDC) is a specification that adds authentication on top of OAuth 2.0. It issues an ID token (in JWT format) that says who the user is. Using only an access token to identify the user is a misuse.",
+      "The current recommendation is the authorization code flow combined with PKCE. PKCE stops an attacker from exchanging an intercepted authorization code for tokens. The implicit flow is not recommended.",
+      "Validate the redirect URI by exact match against the one registered in advance, and prevent CSRF with the state parameter. Loose matching leads to authorization codes or tokens being intercepted.",
+      "The party that receives a JWT verifies the signature, the issuer (iss), the audience (aud) and the expiry (exp). It fixes the algorithm on its own side and does not leave it to the token's header (to prevent attacks such as alg=none)."
+     ],
+     "key_points": [
+      "OAuth 2.0 = authorization, OpenID Connect = authentication",
+      "Use the authorization code flow with PKCE",
+      "Exact-match redirect URIs, and state against CSRF",
+      "Verify a JWT's signature, iss, aud and exp"
+     ],
+     "keywords": [
+      "OAuth 2.0",
+      "OpenID Connect",
+      "PKCE",
+      "access token",
+      "ID token",
+      "JWT"
+     ]
+    },
+    {
+     "id": "A12",
+     "category": "Cloud",
+     "title": "Container and Kubernetes security",
+     "summary": "Containers are less isolated than virtual machines, so you protect three things: the image, the runtime settings and the platform.",
+     "content": [
+      "Containers share the host's OS kernel. Because they are less isolated than virtual machines, a kernel vulnerability or a dangerous setting can let an attacker break out of the container to the host (a container escape).",
+      "Images: use a trusted, minimal base image, scan for vulnerabilities and verify signatures. Do not put passwords or API keys in an image.",
+      "Runtime: run as a non-root user, avoid privileged mode and mounting host directories, and make the root file system read-only.",
+      "Kubernetes: apply least privilege with RBAC, limit communication between Pods to what is needed with network policies, and reject Pods with dangerous settings through admission control. Encrypt Secrets at rest.",
+      "It is also important not to expose the API server or management consoles to the internet unprotected, and to collect audit logs."
+     ],
+     "key_points": [
+      "Containers share the host's kernel",
+      "Images: minimal, scanned and signature-verified",
+      "Run as non-root and without privileges",
+      "RBAC, network policies and admission control"
+     ],
+     "keywords": [
+      "container",
+      "Kubernetes",
+      "container escape",
+      "RBAC",
+      "network policy",
+      "image scanning"
+     ]
+    }
+   ]
+  },
+  "expert": {
+   "level": "expert",
+   "level_name": "Expert",
+   "description": "Highly specialized topics handled by security professionals, such as exploiting and mitigating vulnerabilities, attacks on identity infrastructure, malware analysis and detection engineering (for people who have finished the advanced level)",
+   "lessons": [
+    {
+     "id": "E01",
+     "category": "Vulnerabilities and mitigations",
+     "title": "Memory corruption vulnerabilities and mitigations",
+     "summary": "Understand how memory corruption such as buffer overflows is exploited and how it is defended against.",
+     "content": [
+      "In languages where you manage memory yourself, such as C and C++, memory corruption vulnerabilities occur, such as buffer overflows (writing beyond the allocated area) and use after free (using memory that has already been freed).",
+      "In a stack buffer overflow, the return address of a function can be overwritten to take over the program's flow of execution.",
+      "Typical mitigations: stack canaries (detecting changes to a value placed just before the return address), DEP/NX (not allowing code placed in data areas to run) and ASLR (randomizing the memory layout each time).",
+      "ROP (return-oriented programming) chains together fragments of instructions already in the program (gadgets) and runs them, which gets around DEP/NX. ASLR is defeated by combining the attack with a separate vulnerability that leaks addresses (an information leak).",
+      "More fundamental measures are control-flow integrity (CFI, such as shadow stacks) and moving to memory-safe languages such as Rust. Mitigations make attacks harder, but the vulnerability itself still has to be fixed."
+     ],
+     "key_points": [
+      "Overwriting the return address takes over execution",
+      "Stack canaries, DEP/NX and ASLR",
+      "ROP gets around DEP/NX, and an information leak defeats ASLR",
+      "Memory-safe languages are the fundamental measure"
+     ],
+     "keywords": [
+      "buffer overflow",
+      "use after free",
+      "ROP",
+      "ASLR",
+      "DEP/NX",
+      "stack canary",
+      "CFI"
+     ]
+    },
+    {
+     "id": "E02",
+     "category": "Identity infrastructure",
+     "title": "Attacks on Active Directory and how to defend it",
+     "summary": "How Active Directory, the center of account management in an organization, is targeted after an intrusion, and how to defend it.",
+     "content": [
+      "Active Directory (AD) is the platform many organizations use to manage accounts and permissions centrally. After getting into an ordinary user's device, attackers move laterally, aiming for AD administrator rights (domain admin).",
+      "Pass-the-hash: an NTLM hash stolen from a device's memory or elsewhere is used for authentication as it is, in place of the password. The more devices administrators sign in to, the more chances there are to steal one.",
+      "Kerberoasting: taking advantage of the fact that any domain user can request service tickets, the attacker takes tickets away and cracks the service account's password offline.",
+      "Golden ticket: the attacker steals the key of the krbtgt account and forges authentication tickets (TGTs) for any user. It means the whole domain is compromised, and recovery involves changing the krbtgt password twice.",
+      "Defenses: split administrator accounts into tiers, and do not let higher-tier administrators sign in to lower-tier devices (the tier model). Use long random passwords or gMSAs for service accounts. Use LAPS to give each device a different local administrator password. Monitor for unusual ticket requests and abuse of directory replication (DCSync)."
+     ],
+     "key_points": [
+      "The attacker's goal is domain admin",
+      "Pass-the-hash uses a stolen hash for authentication as it is",
+      "Kerberoasting cracks service accounts offline",
+      "Defend with the tier model, gMSAs and LAPS"
+     ],
+     "keywords": [
+      "Active Directory",
+      "Kerberos",
+      "pass-the-hash",
+      "Kerberoasting",
+      "golden ticket",
+      "DCSync",
+      "LAPS"
+     ]
+    },
+    {
+     "id": "E03",
+     "category": "Analysis",
+     "title": "Malware analysis (static and dynamic analysis)",
+     "summary": "Techniques for finding out what malware does and extracting information that can be used for detection and response.",
+     "content": [
+      "The aim of malware analysis is to find out what the malware does (its functions), what it communicates with, and how it can be detected and removed, and to produce IoCs and detection rules.",
+      "Static analysis: examining the malware without running it. Start by checking the hash, the strings it contains and the functions it imports, and read the code with a disassembler or decompiler if needed.",
+      "Dynamic analysis: actually running it in an isolated environment (a sandbox or an analysis virtual machine) and observing its behavior in files, the registry, processes and network traffic.",
+      "Much malware hinders static analysis with packing (compression or encryption) and obfuscation, and tries to escape dynamic analysis by detecting virtual machines or debuggers, or by waiting a long time. That is why the two are combined.",
+      "Do the analysis in a dedicated environment cut off from the production network. YARA rules are a format for classifying and detecting malware by features such as strings and byte sequences."
+     ],
+     "key_points": [
+      "Static analysis = examine without running; dynamic analysis = run and observe",
+      "Combine both, because of packing and anti-analysis tricks",
+      "Work in an isolated, dedicated environment",
+      "Turn the results into IoCs and YARA rules"
+     ],
+     "keywords": [
+      "static analysis",
+      "dynamic analysis",
+      "sandbox",
+      "packing",
+      "obfuscation",
+      "YARA",
+      "disassembly"
+     ]
+    },
+    {
+     "id": "E04",
+     "category": "Monitoring",
+     "title": "Detection engineering and threat hunting",
+     "summary": "The work of building and maintaining rules that find attacks, and the activity of looking for traces of attacks without waiting for alerts.",
+     "content": [
+      "Detection engineering is the ongoing work of designing, testing and improving the rules that find attacks. \"Detection as code\", in which rules are managed as code and changes are reviewed and tested, is spreading.",
+      "The Pyramid of Pain: attackers can easily change hash values and IP addresses, but their methods (TTPs) are hard to change. The more a detection is based on methods, the more it costs the attacker.",
+      "Attackers misuse legitimate tools that come with the OS (such as PowerShell) to stay unnoticed (living off the land). Detection needs to focus on behavior, not on the features of files.",
+      "Sigma is a common format for detection rules that does not depend on a particular product. Rules are converted into each SIEM's query language.",
+      "Threat hunting does not wait for alerts: it starts from a hypothesis that \"we may already have been breached\" and searches the logs for traces of an attack. Methods that are found become new detection rules. It also involves tuning false positives and checking coverage against MITRE ATT&CK."
+     ],
+     "key_points": [
+      "Detection based on methods (TTPs) is effective",
+      "Detect the misuse of legitimate tools by behavior",
+      "Sigma = a product-independent format for detection rules",
+      "Threat hunting starts from a hypothesis"
+     ],
+     "keywords": [
+      "detection engineering",
+      "threat hunting",
+      "Pyramid of Pain",
+      "TTP",
+      "living off the land",
+      "Sigma",
+      "detection as code"
+     ]
+    },
+    {
+     "id": "E05",
+     "category": "Cryptography",
+     "title": "Pitfalls in implementing cryptography, and post-quantum cryptography",
+     "summary": "Even secure cryptography is broken when it is used wrongly. This lesson also covers the move to new cryptography that prepares for quantum computers.",
+     "content": [
+      "Even a secure algorithm is broken when it is used wrongly. The basic rule is not to invent your own cryptography, and to use authenticated encryption (AEAD, such as AES-GCM or ChaCha20-Poly1305) from a trusted library.",
+      "Nonce reuse: in AES-GCM, using the same pair of key and nonce (a value used only once) again leaks information about the plaintext and also breaks tamper detection. In ECB mode, identical plaintext blocks become identical ciphertext, so patterns in the data remain.",
+      "Padding oracle attack: in CBC mode, if differences in errors or the like reveal whether the padding was correct on decryption, the plaintext can be recovered without the key. Side-channel attack: secrets can be inferred from differences such as processing time, so comparisons of secret values are done in constant time.",
+      "If a large-scale quantum computer is built, Shor's algorithm will break RSA and elliptic curve cryptography. Symmetric-key cryptography and hash functions can cope by using longer keys and outputs (such as AES-256).",
+      "In 2024 NIST published ML-KEM (key establishment, FIPS 203), ML-DSA (signatures, FIPS 204) and SLH-DSA (signatures, FIPS 205) as standards for post-quantum cryptography (PQC). To prepare for attacks that collect ciphertext now and decrypt it in the future (harvest now, decrypt later), migration is under way using designs that make it easy to swap cryptography (crypto-agility) and combinations with conventional methods (hybrid)."
+     ],
+     "key_points": [
+      "Do not invent your own cryptography; use authenticated encryption (AEAD)",
+      "Never reuse a nonce",
+      "Information leaks through differences in errors and processing time",
+      "Quantum computers will break RSA and elliptic curve cryptography, so migrate to PQC"
+     ],
+     "keywords": [
+      "AEAD",
+      "AES-GCM",
+      "nonce",
+      "padding oracle attack",
+      "side-channel attack",
+      "post-quantum cryptography",
+      "ML-KEM",
+      "crypto-agility"
+     ],
+     "reference_url": "https://csrc.nist.gov/projects/post-quantum-cryptography"
+    },
+    {
+     "id": "E06",
+     "category": "Cloud",
+     "title": "Advanced attacks on the cloud and how to defend against them",
+     "summary": "In the cloud, identities and permissions are at the center of attack and defense. Learn the typical attack paths and countermeasures.",
+     "content": [
+      "In the cloud, identity (IAM) is at the center of defense, more than the network perimeter. Attackers use leaked access keys and excessive permissions as a foothold and widen their permissions from there.",
+      "Abuse of the metadata service: a virtual machine can obtain temporary credentials from a special internal address (169.254.169.254). If a web app has an SSRF vulnerability, these credentials can be stolen. A method that requires obtaining a token first, such as AWS IMDSv2, makes them hard to obtain with a simple SSRF.",
+      "IAM privilege escalation: with permission to rewrite policies, or to pass a more powerful role to a service (such as PassRole), a user can give themselves the equivalent of administrator rights. Watch out for combinations of permissions that look harmless on their own.",
+      "Confused deputy: in the mechanism for assuming a role in another account, a third-party service is tricked into accessing a different customer's resources. It is prevented with conditions such as an external ID.",
+      "Defenses: get rid of long-lived access keys and use temporary credentials. Keep reviewing least privilege. Record activity logs (such as AWS CloudTrail) in all regions and keep them in a separate account. Forbid dangerous operations with organization-wide guardrails."
+     ],
+     "key_points": [
+      "Identity (IAM) is the center of cloud defense",
+      "Credentials can be stolen through SSRF and the metadata service",
+      "Watch for privilege escalation through combinations of permissions",
+      "Temporary credentials, least privilege and activity logs"
+     ],
+     "keywords": [
+      "IAM",
+      "metadata service",
+      "SSRF",
+      "IMDSv2",
+      "privilege escalation",
+      "confused deputy",
+      "CloudTrail"
+     ]
     }
    ]
   }
@@ -1754,6 +2090,90 @@ window.CYBER_DATA = {
     ],
     "answer": 3,
     "explanation": "If you show \"File name extensions\" from the View menu in File Explorer, you can see the real type, such as \".exe\"."
+   },
+   {
+    "id": "BQ061",
+    "lesson_id": "B13",
+    "type": "multiple_choice",
+    "question": "Which of these should you avoid entering into a generative AI service?",
+    "choices": [
+     "A request to summarize publicly available news",
+     "Customers' names and addresses, or unpublished company information",
+     "A question about a cooking recipe",
+     "A question about the meaning of an English word"
+    ],
+    "answer": 1,
+    "explanation": "What you enter may be stored or used to train the AI. Do not enter personal information or secrets."
+   },
+   {
+    "id": "BQ062",
+    "lesson_id": "B13",
+    "type": "multiple_choice",
+    "question": "Which is the right way to think about answers from generative AI?",
+    "choices": [
+     "AI answers are always correct, so you can use them as they are",
+     "You can judge an answer to be correct if it is long",
+     "You can judge an answer to be correct if it sounds confident",
+     "They can contain plausible-sounding mistakes, so check important matters against another source"
+    ],
+    "answer": 3,
+    "explanation": "Generative AI sometimes gives answers that differ from the facts but sound plausible (hallucinations). Check important matters on an official site or the like."
+   },
+   {
+    "id": "BQ063",
+    "lesson_id": "B13",
+    "type": "multiple_choice",
+    "question": "You get a call in a voice just like a family member's saying \"I caused an accident. Please transfer money right away.\" What is the right response?",
+    "choices": [
+     "Hang up, then call back on a number you already know to check",
+     "Transfer the money right away, because the voice is theirs",
+     "Call back on the number the caller gives you",
+     "Tell the caller your account PIN"
+    ],
+    "answer": 0,
+    "explanation": "AI can fake a voice so that it sounds real. Check by calling back on a number you already know, not one the caller gives you."
+   },
+   {
+    "id": "BQ064",
+    "lesson_id": "B14",
+    "type": "multiple_choice",
+    "question": "Which is the correct reason why passkeys resist phishing?",
+    "choices": [
+     "Because the password is very long",
+     "Because a verification code arrives by SMS every time",
+     "They are tied to the domain of the site where they were registered and cannot be used on a fake site",
+     "Because the user answers a secret question"
+    ],
+    "answer": 2,
+    "explanation": "A passkey only works on the domain of the site where it was registered. It cannot be used on a fake site that looks the same, so it cannot be tricked out of you."
+   },
+   {
+    "id": "BQ065",
+    "lesson_id": "B14",
+    "type": "multiple_choice",
+    "question": "Which is correct about verification codes sent by SMS?",
+    "choices": [
+     "A verification code can be used over and over again",
+     "If you enter one on a fake site, the attacker can use it right away to get in",
+     "It is fine to tell someone else your verification code",
+     "If you use verification codes, you will never be a victim of phishing"
+    ],
+    "answer": 1,
+    "explanation": "There is a method in which a code you are tricked into entering on a fake site is used on the real site at once (real-time phishing). Codes, too, must not be entered on fake sites."
+   },
+   {
+    "id": "BQ066",
+    "lesson_id": "B14",
+    "type": "multiple_choice",
+    "question": "When you register a passkey, what is stored by the site?",
+    "choices": [
+     "The private key",
+     "An image of your fingerprint",
+     "The PIN for your device's screen lock",
+     "The public key"
+    ],
+    "answer": 3,
+    "explanation": "Only the public key is stored by the site. The private key stays on the device, and information such as your fingerprint is not sent to the site either."
    }
   ],
   "intermediate": [
@@ -2806,6 +3226,90 @@ window.CYBER_DATA = {
     ],
     "answer": 2,
     "explanation": "The amended Act on the Protection of Personal Information, in force since April 2022, made reporting and notification of individuals mandatory for certain leaks."
+   },
+   {
+    "id": "IQ076",
+    "lesson_id": "I13",
+    "type": "multiple_choice",
+    "question": "Which mechanism compares the IP address of the server that sent an email with information registered in the domain's DNS?",
+    "choices": [
+     "SPF",
+     "DKIM",
+     "S/MIME",
+     "POP3"
+    ],
+    "answer": 0,
+    "explanation": "With SPF, the IP addresses of the servers allowed to send mail for the domain are registered in DNS, and the receiver compares against them."
+   },
+   {
+    "id": "IQ077",
+    "lesson_id": "I13",
+    "type": "multiple_choice",
+    "question": "In which mechanism does the sending server add a digital signature to an email, which the receiver verifies with a public key published in DNS?",
+    "choices": [
+     "SPF",
+     "NTP",
+     "DKIM",
+     "DHCP"
+    ],
+    "answer": 2,
+    "explanation": "Because DKIM uses a digital signature, it confirms not only that the mail came from a legitimate server but also that it was not altered on the way."
+   },
+   {
+    "id": "IQ078",
+    "lesson_id": "I13",
+    "type": "multiple_choice",
+    "question": "Which is the correct role of DMARC?",
+    "choices": [
+     "Encrypting the body of an email",
+     "Checking that the authenticated domain matches the domain in the From address, and declaring how failing mail should be handled",
+     "Removing viruses from attachments",
+     "Speeding up email delivery"
+    ],
+    "answer": 1,
+    "explanation": "DMARC checks the SPF and DKIM results against the From domain, and lets the domain owner declare how failures are handled (none, quarantine or reject)."
+   },
+   {
+    "id": "IQ079",
+    "lesson_id": "I14",
+    "type": "multiple_choice",
+    "question": "Which wireless LAN encryption method should not be used because it can be cracked in a short time?",
+    "choices": [
+     "WPA3",
+     "WPA2 (AES)",
+     "WPA3-Enterprise",
+     "WEP"
+    ],
+    "answer": 3,
+    "explanation": "WEP has design flaws and can be cracked in a short time. Use WPA2 (AES) or better, and WPA3 if you can."
+   },
+   {
+    "id": "IQ080",
+    "lesson_id": "I14",
+    "type": "multiple_choice",
+    "question": "Which is a correct advantage of SAE, used in WPA3-Personal?",
+    "choices": [
+     "It is hard to brute-force the password offline from captured data",
+     "You no longer need to set a password",
+     "The signal reaches further",
+     "The speed always doubles"
+    ],
+    "answer": 0,
+    "explanation": "With WPA2-Personal, the password may be cracked offline from a captured connection exchange. SAE makes this difficult."
+   },
+   {
+    "id": "IQ081",
+    "lesson_id": "I14",
+    "type": "multiple_choice",
+    "question": "For an organization's wireless LAN, which method can authenticate each user, so that no shared password has to be changed when someone leaves?",
+    "choices": [
+     "WEP",
+     "The WPS PIN method",
+     "The enterprise method (IEEE 802.1X)",
+     "An open network with no encryption"
+    ],
+    "answer": 2,
+    "explanation": "IEEE 802.1X authenticates each user through an authentication server. When someone leaves, you only need to disable their account."
    }
   ],
   "advanced": [
@@ -3718,6 +4222,428 @@ window.CYBER_DATA = {
     ],
     "answer": 2,
     "explanation": "Threats are selected from two viewpoints, \"individuals\" and \"organizations\". Check the latest edition to see which threats are getting attention now."
+   },
+   {
+    "id": "AQ066",
+    "lesson_id": "A11",
+    "type": "multiple_choice",
+    "question": "Which correctly describes the relationship between OAuth 2.0 and OpenID Connect?",
+    "choices": [
+     "Both are symmetric-key encryption algorithms",
+     "OAuth 2.0 is a framework for authorization, and OpenID Connect adds authentication with an ID token on top of it",
+     "OAuth 2.0 handles authentication and OpenID Connect handles authorization",
+     "OpenID Connect is an old version of OAuth 2.0"
+    ],
+    "answer": 1,
+    "explanation": "OAuth 2.0 is an authorization mechanism that grants access to APIs. For authentication, that is, checking who the user is, you use OpenID Connect, which issues an ID token."
+   },
+   {
+    "id": "AQ067",
+    "lesson_id": "A11",
+    "type": "multiple_choice",
+    "question": "What is the purpose of using PKCE in the authorization code flow?",
+    "choices": [
+     "To make the user's password longer",
+     "To remove the expiry of tokens",
+     "To compress the data sent",
+     "To stop an attacker from exchanging an intercepted authorization code for tokens"
+    ],
+    "answer": 3,
+    "explanation": "With PKCE, a value known only to the app that started the authorization request is checked when the code is exchanged for tokens. A stolen authorization code cannot be exchanged."
+   },
+   {
+    "id": "AQ068",
+    "lesson_id": "A11",
+    "type": "multiple_choice",
+    "question": "Which is the right way to validate a JWT you receive?",
+    "choices": [
+     "Verify the signature, issuer (iss), audience (aud) and expiry (exp), and fix the algorithm on the receiving side",
+     "Read and use the contents without verifying the signature",
+     "Use whatever algorithm is written in the token's header, unconditionally",
+     "Accept it even if it has expired"
+    ],
+    "answer": 0,
+    "explanation": "If you skip verification or leave the algorithm up to the token, you end up accepting forged tokens (attacks such as alg=none)."
+   },
+   {
+    "id": "AQ069",
+    "lesson_id": "A12",
+    "type": "multiple_choice",
+    "question": "What is the main reason containers are said to be less isolated than virtual machines?",
+    "choices": [
+     "They always run with root privileges",
+     "They cannot use the network",
+     "They share the host's OS kernel",
+     "Their images are encrypted"
+    ],
+    "answer": 2,
+    "explanation": "Containers share the host's kernel. A kernel vulnerability or a dangerous setting can let an attacker break out to the host."
+   },
+   {
+    "id": "AQ070",
+    "lesson_id": "A12",
+    "type": "multiple_choice",
+    "question": "Which is an appropriate runtime setting for a container?",
+    "choices": [
+     "Always run in privileged mode because it is convenient",
+     "Run as a non-root user and do not use privileged mode",
+     "Mount the host's root directory",
+     "Write passwords into the image"
+    ],
+    "answer": 1,
+    "explanation": "Keeping privileges narrow limits the impact on the host and other containers even if the app in the container is compromised."
+   },
+   {
+    "id": "AQ071",
+    "lesson_id": "A12",
+    "type": "multiple_choice",
+    "question": "In Kubernetes, which mechanism limits communication between Pods to only what is needed?",
+    "choices": [
+     "ConfigMap",
+     "ReplicaSet",
+     "The Ingress host name",
+     "Network policies"
+    ],
+    "answer": 3,
+    "explanation": "Limiting traffic with network policies makes it easier to stop lateral movement to other Pods even if one Pod is compromised."
+   }
+  ],
+  "expert": [
+   {
+    "id": "EQ001",
+    "lesson_id": "E01",
+    "type": "multiple_choice",
+    "question": "Which mitigation prevents code placed in data areas from being executed?",
+    "choices": [
+     "DEP/NX",
+     "ASLR",
+     "Stack canaries",
+     "Code signing"
+    ],
+    "answer": 0,
+    "explanation": "DEP/NX makes data areas such as the stack and the heap non-executable. ASLR randomizes the layout, and stack canaries detect overwrites."
+   },
+   {
+    "id": "EQ002",
+    "lesson_id": "E01",
+    "type": "multiple_choice",
+    "question": "Which correctly describes ROP (return-oriented programming)?",
+    "choices": [
+     "It writes new code onto the stack and runs it there",
+     "It tries passwords by brute force",
+     "It chains together fragments of instructions already in the program and runs them, getting around DEP/NX",
+     "It eavesdrops on traffic to steal credentials"
+    ],
+    "answer": 2,
+    "explanation": "ROP uses only fragments of instructions (gadgets) that are already in executable areas, so DEP/NX, which forbids execution in data areas, cannot stop it."
+   },
+   {
+    "id": "EQ003",
+    "lesson_id": "E01",
+    "type": "multiple_choice",
+    "question": "Under which typical condition is ASLR defeated?",
+    "choices": [
+     "When the user's password is short",
+     "When it is combined with a vulnerability that leaks memory addresses (an information leak)",
+     "When TLS is disabled",
+     "When logs are not being collected"
+    ],
+    "answer": 1,
+    "explanation": "ASLR assumes that the attacker does not know the addresses. Once addresses leak, the randomization no longer helps."
+   },
+   {
+    "id": "EQ004",
+    "lesson_id": "E01",
+    "type": "multiple_choice",
+    "question": "What is the most fundamental measure against memory corruption vulnerabilities?",
+    "choices": [
+     "Relying on ASLR alone",
+     "Not showing error messages",
+     "Changing the program's file name",
+     "Using a memory-safe language (such as Rust) so that the vulnerabilities are not introduced in the first place"
+    ],
+    "answer": 3,
+    "explanation": "Mitigations only make attacks harder and can be bypassed. The fundamental measures are not introducing vulnerabilities and fixing those that are found."
+   },
+   {
+    "id": "EQ005",
+    "lesson_id": "E02",
+    "type": "multiple_choice",
+    "question": "Which correctly describes Kerberoasting?",
+    "choices": [
+     "Requesting service tickets, taking them away, and cracking the service account's password offline",
+     "Sending a large amount of traffic to a domain controller to bring it down",
+     "Setting up a fake Wi-Fi access point",
+     "Infecting a device with malware through an email attachment"
+    ],
+    "answer": 0,
+    "explanation": "A service ticket is encrypted with a key derived from the service account's password. If the password is weak, it is cracked offline."
+   },
+   {
+    "id": "EQ006",
+    "lesson_id": "E02",
+    "type": "multiple_choice",
+    "question": "Which correctly describes pass-the-hash?",
+    "choices": [
+     "Comparing hash values to detect tampering with a file",
+     "Hashing passwords to store them safely",
+     "Using a stolen NTLM hash for authentication without knowing the plaintext password",
+     "Finding a collision in a hash function"
+    ],
+    "answer": 2,
+    "explanation": "In NTLM authentication, the hash itself can be used to authenticate. Having a hash stolen means the same as having the password stolen."
+   },
+   {
+    "id": "EQ007",
+    "lesson_id": "E02",
+    "type": "multiple_choice",
+    "question": "In a golden ticket attack, which account's key is abused?",
+    "choices": [
+     "Guest",
+     "krbtgt",
+     "The local Administrator on each device",
+     "An ordinary user's account"
+    ],
+    "answer": 1,
+    "explanation": "With the krbtgt key, an attacker can forge authentication tickets (TGTs) for any user. Recovery involves changing the krbtgt password twice."
+   },
+   {
+    "id": "EQ008",
+    "lesson_id": "E02",
+    "type": "multiple_choice",
+    "question": "Which is an appropriate countermeasure against Kerberoasting?",
+    "choices": [
+     "Making service account passwords short and easy to remember",
+     "Making every user a domain admin",
+     "Stopping the collection of authentication logs",
+     "Setting long random passwords on service accounts, or using gMSAs"
+    ],
+    "answer": 3,
+    "explanation": "A long random password makes offline cracking impractical. A gMSA is a mechanism that manages and changes the password automatically."
+   },
+   {
+    "id": "EQ009",
+    "lesson_id": "E03",
+    "type": "multiple_choice",
+    "question": "Which correctly describes static analysis of malware?",
+    "choices": [
+     "Examining strings, imported functions, code and so on without running the malware",
+     "Running the malware and observing its behavior",
+     "Restarting the infected device",
+     "Interviewing the user whose device was infected"
+    ],
+    "answer": 0,
+    "explanation": "Static analysis examines the malware without running it; dynamic analysis runs it in an isolated environment and observes it."
+   },
+   {
+    "id": "EQ010",
+    "lesson_id": "E03",
+    "type": "multiple_choice",
+    "question": "What is the main purpose of packing (compression or encryption) by malware?",
+    "choices": [
+     "To make the malware run faster",
+     "To tell the user that they have been infected",
+     "To hinder static analysis and pattern-based detection",
+     "To make the file size larger in every case"
+    ],
+    "answer": 2,
+    "explanation": "A packed file unpacks its original code when it runs. Its contents cannot be read as they are, which makes static analysis difficult."
+   },
+   {
+    "id": "EQ011",
+    "lesson_id": "E03",
+    "type": "multiple_choice",
+    "question": "Which is an appropriate environment for dynamic analysis of malware?",
+    "choices": [
+     "The work PC you normally use",
+     "An isolated environment dedicated to analysis and cut off from the production network",
+     "The company's production server",
+     "A PC shared with your family"
+    ],
+    "answer": 1,
+    "explanation": "Because the malware is actually run, the work is done in an isolated, dedicated environment so that the infection does not spread."
+   },
+   {
+    "id": "EQ012",
+    "lesson_id": "E03",
+    "type": "multiple_choice",
+    "question": "Which correctly describes YARA?",
+    "choices": [
+     "A protocol that encrypts communication",
+     "A standard for rating the severity of vulnerabilities",
+     "A product that collects and analyzes logs",
+     "A rule format for classifying and detecting malware by features such as strings and byte sequences"
+    ],
+    "answer": 3,
+    "explanation": "With YARA rules, the features found in an analysis can also be used to inspect other files."
+   },
+   {
+    "id": "EQ013",
+    "lesson_id": "E04",
+    "type": "multiple_choice",
+    "question": "In the Pyramid of Pain, which costs the attacker the most when it is detected?",
+    "choices": [
+     "Their methods (TTPs)",
+     "File hash values",
+     "IP addresses",
+     "Domain names"
+    ],
+    "answer": 0,
+    "explanation": "Hash values and IP addresses can be changed at once, but changing methods means rebuilding the way the attack itself is carried out."
+   },
+   {
+    "id": "EQ014",
+    "lesson_id": "E04",
+    "type": "multiple_choice",
+    "question": "Which attacker activity is called \"living off the land\"?",
+    "choices": [
+     "Using only unknown malware",
+     "Physically breaking into a building",
+     "Misusing legitimate tools that come with the OS to stay unnoticed",
+     "Sending a large amount of traffic to bring a service down"
+    ],
+    "answer": 2,
+    "explanation": "Because legitimate tools are used, it is hard to find by the features of files. It is detected by behavior, such as the contents of commands and parent-child relationships between processes."
+   },
+   {
+    "id": "EQ015",
+    "lesson_id": "E04",
+    "type": "multiple_choice",
+    "question": "Which correctly describes Sigma?",
+    "choices": [
+     "A format for writing the features of malware files",
+     "A common, product-independent format for detection rules, converted into each SIEM's query language",
+     "An identifier given to vulnerabilities",
+     "The name of an encryption algorithm"
+    ],
+    "answer": 1,
+    "explanation": "Sigma is a format for detection rules that run against logs. YARA is for the features of files, and CVE is the identifier for vulnerabilities."
+   },
+   {
+    "id": "EQ016",
+    "lesson_id": "E04",
+    "type": "multiple_choice",
+    "question": "Which correctly describes threat hunting?",
+    "choices": [
+     "Responding only to things that raised an alert",
+     "Carrying out an audit once a year",
+     "Updating antivirus definition files",
+     "Forming a hypothesis without waiting for alerts, and searching the logs for traces of an attack"
+    ],
+    "answer": 3,
+    "explanation": "It is a proactive activity for finding attacks that slipped past the existing rules. Methods that are found become new detection rules."
+   },
+   {
+    "id": "EQ017",
+    "lesson_id": "E05",
+    "type": "multiple_choice",
+    "question": "In AES-GCM, what happens if a nonce is reused with the same key?",
+    "choices": [
+     "Information about the plaintext leaks, and tamper detection may be broken too",
+     "Encryption just gets faster, with no problem",
+     "The key is updated automatically",
+     "The ciphertext becomes shorter"
+    ],
+    "answer": 0,
+    "explanation": "A nonce is a value that must be used only once with the same key. Reusing it damages both confidentiality and tamper detection."
+   },
+   {
+    "id": "EQ018",
+    "lesson_id": "E05",
+    "type": "multiple_choice",
+    "question": "When a large-scale quantum computer is built, which of these will Shor's algorithm break?",
+    "choices": [
+     "AES-256",
+     "SHA-384",
+     "Public-key cryptography such as RSA and elliptic curve cryptography",
+     "A sufficiently long random password"
+    ],
+    "answer": 2,
+    "explanation": "Shor's algorithm solves the integer factorization and discrete logarithm problems efficiently. Symmetric-key cryptography and hash functions can cope by using longer keys and outputs."
+   },
+   {
+    "id": "EQ019",
+    "lesson_id": "E05",
+    "type": "multiple_choice",
+    "question": "Which post-quantum cryptography for key establishment did NIST publish as a standard in 2024?",
+    "choices": [
+     "RSA-OAEP",
+     "ML-KEM (FIPS 203)",
+     "ECDH",
+     "SHA-3"
+    ],
+    "answer": 1,
+    "explanation": "ML-KEM is a method for key establishment (key encapsulation). For signatures, ML-DSA (FIPS 204) and SLH-DSA (FIPS 205) were published."
+   },
+   {
+    "id": "EQ020",
+    "lesson_id": "E05",
+    "type": "multiple_choice",
+    "question": "Which attack is called \"harvest now, decrypt later\"?",
+    "choices": [
+     "Trying passwords by brute force",
+     "Getting data stored without encryption",
+     "Deleting backups",
+     "Collecting encrypted communications now, and decrypting them in the future with a quantum computer or the like"
+    ],
+    "answer": 3,
+    "explanation": "Information that must stay protected for a long time is exposed to the risk of future decryption from the moment it is sent with today's cryptography. That is why early migration is called for."
+   },
+   {
+    "id": "EQ021",
+    "lesson_id": "E06",
+    "type": "multiple_choice",
+    "question": "When a web app in the cloud has an SSRF vulnerability, what is targeted in particular?",
+    "choices": [
+     "Temporary credentials that can be obtained from the metadata service",
+     "Cookies in the user's browser",
+     "The DNS cache",
+     "Screenshots of the screen"
+    ],
+    "answer": 0,
+    "explanation": "SSRF lets an attacker make the server send requests to internal addresses. If credentials are obtained from the metadata service, the attacker can operate cloud resources."
+   },
+   {
+    "id": "EQ022",
+    "lesson_id": "E06",
+    "type": "multiple_choice",
+    "question": "Which is a correct effect of requiring AWS IMDSv2?",
+    "choices": [
+     "The metadata service responds faster",
+     "The price of the virtual machine goes down",
+     "A token has to be obtained first, which makes it hard to get credentials with a simple SSRF",
+     "All of the virtual machine's traffic is blocked"
+    ],
+    "answer": 2,
+    "explanation": "With IMDSv2, you first obtain a token with a dedicated request and then attach it to get the information. A simple SSRF that only lets the attacker specify a URL cannot follow these steps."
+   },
+   {
+    "id": "EQ023",
+    "lesson_id": "E06",
+    "type": "multiple_choice",
+    "question": "Which is a countermeasure against the confused deputy problem, which arises in the mechanism for assuming a role in another account?",
+    "choices": [
+     "Letting anyone assume every role",
+     "Specifying something such as an external ID as a condition for assuming the role",
+     "Turning off activity logging",
+     "Sharing the root account among several people"
+    ],
+    "answer": 1,
+    "explanation": "Making an external ID a condition stops a third-party service from accessing resources because of a request that impersonates a different customer."
+   },
+   {
+    "id": "EQ024",
+    "lesson_id": "E06",
+    "type": "multiple_choice",
+    "question": "Which is appropriate for managing cloud credentials?",
+    "choices": [
+     "Writing access keys into the source code",
+     "Giving everyone administrator rights",
+     "Keeping on using the same access key without changing it",
+     "Getting rid of long-lived access keys and using temporary credentials"
+    ],
+    "answer": 3,
+    "explanation": "A long-lived access key can be abused for a long time once it leaks. Temporary credentials through roles and the like reduce the impact of a leak."
    }
   ]
  },
