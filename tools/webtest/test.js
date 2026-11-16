@@ -99,7 +99,7 @@ const wait = (ms) => new Promise((r) => setTimeout(r, ms));
   const heroWidth = await page.$eval(".hero-visual img", (img) => (img.complete ? img.naturalWidth : 0));
   check("ヒーローの写真が表示される", heroWidth > 0, `幅 ${heroWidth}px`);
   check("ホームの文言（入口カードと案内）",
-    (await hasText("知識（初級～専門）")) && (await hasText("初級から専門の問題から出題")) &&
+    (await hasText("初級、中級、上級、超級")) && (await hasText("初級から超級の問題から出題")) &&
     (await hasText("関連する資格一覧と受験方法と申し込みサイト")) && (await hasText("「資格一覧」で")));
   const quickText = await page.$eval(".quick-card", (el) => el.textContent);
   check("確認クイズに問題が出る（null 表示なし）", quickText.length > 0 && !quickText.includes("null"));

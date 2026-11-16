@@ -5,7 +5,7 @@ enum class Level(val key: String, val label: String) {
     BEGINNER("beginner", "初級"),
     INTERMEDIATE("intermediate", "中級"),
     ADVANCED("advanced", "上級"),
-    EXPERT("expert", "専門");
+    EXPERT("expert", "超級");
 
     companion object {
         fun fromKey(key: String): Level = entries.first { it.key == key }

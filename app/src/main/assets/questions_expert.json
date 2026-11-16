@@ -1,6 +1,6 @@
 {
   "level": "expert",
-  "level_name": "専門",
+  "level_name": "超級",
   "questions": [
     {"id": "EQ001", "lesson_id": "E01", "type": "multiple_choice", "question": "データ領域に置かれたコードの実行を防ぐ緩和策はどれですか？", "choices": ["DEP/NX", "ASLR", "スタックカナリア", "コード署名"], "answer": 0, "explanation": "DEP/NXは、スタックやヒープなどのデータ領域を実行不可にします。ASLRは配置のランダム化、スタックカナリアは書き換えの検出です。"},
     {"id": "EQ002", "lesson_id": "E01", "type": "multiple_choice", "question": "ROP（Return-Oriented Programming）の説明として、正しいものはどれですか？", "choices": ["新しいコードをスタックに書き込んで、そのまま実行する", "パスワードを総当たりで試す", "プログラム内に元からある命令の断片をつなぎ合わせて実行し、DEP/NXを回避する", "通信を盗聴して認証情報を盗む"], "answer": 2, "explanation": "ROPは、すでに実行可能な領域にある命令の断片（ガジェット）だけを使うため、データ領域の実行を禁止するDEP/NXでは防げません。"},
