@@ -1,0 +1,162 @@
+{
+  "description": "An overview of the main security-related certifications, with how to take them, basic exam facts, and how to apply. Difficulty is shown by the number of ☆: the more stars, the harder (a rough guide). The content was checked against the official sites in November 2026. Exam times, numbers of questions, passing lines and fees can change with the period or year, so always check the latest information on the official site before you apply.",
+  "cbt_note": "CBT (computer-based testing) is a way of taking an exam in which you answer questions shown on a computer screen using the mouse and keyboard. No paper answer sheets are used. For many exams you choose and book the test center and the date and time yourself, and can take the exam at any time of year.",
+  "categories": [
+    {
+      "name": "Japan (national examinations run by IPA)",
+      "items": [
+        {
+          "name": "Information Technology Passport Examination (IP)",
+          "summary": "A Japanese national examination on basic IT knowledge. The basics of information security are also covered.",
+          "target": "People who are about to start learning IT or security.",
+          "format": "Multiple choice (CBT, available year-round)",
+          "difficulty": 1,
+          "spec": [
+            "Exam time: 120 minutes",
+            "Number of questions: 100",
+            "Passing line: an overall score of 600 or more (out of 1,000), and 300 or more in each of the three field scores",
+            "Exam fee: 7,500 yen (tax included)"
+          ],
+          "exam_method": [
+            "It is a CBT exam taken on a computer.",
+            "It can be taken year-round, and you choose the date, time and test center yourself.",
+            "Because of a system replacement, the exam is scheduled to be suspended from December 28, 2026 and to resume in late January 2027. A new examination system is planned from fiscal 2027, so check the latest information from IPA before planning to take it."
+          ],
+          "how_to_apply": [
+            "Check the application period and the exam format on IPA's list of examination categories",
+            "Follow the guidance to the application site, choose the date, time and test center, and apply"
+          ],
+          "official_url": "https://www.ipa.go.jp/shiken/kubun/list.html"
+        },
+        {
+          "name": "Information Security Management Examination (SG)",
+          "summary": "A Japanese national examination on managing information security. It covers risk treatment, the ISMS, related laws and so on.",
+          "target": "People involved in managing and operating information security in an organization.",
+          "format": "Subject A and Subject B are both multiple choice (CBT, available year-round)",
+          "difficulty": 2,
+          "spec": [
+            "Exam time: 120 minutes (Subjects A and B together)",
+            "Number of questions: 60",
+            "Passing line: 600 or more (out of 1,000)",
+            "Exam fee: 7,500 yen (tax included)"
+          ],
+          "exam_method": [
+            "It is a CBT exam that can be taken year-round.",
+            "You choose the date, time and test center yourself when you apply.",
+            "Because of a system replacement, the exam is scheduled to be suspended from December 28, 2026 and to resume in late January 2027. Check the latest status with IPA before planning to take it."
+          ],
+          "how_to_apply": [
+            "Go from IPA's overview page to the application site run by its contractor",
+            "Choose the test center and the date and time, and apply",
+            "Dates are limited around the suspension period, so check the status before applying"
+          ],
+          "official_url": "https://www.ipa.go.jp/shiken/kubun/sg.html"
+        },
+        {
+          "name": "Fundamental Information Technology Engineer Examination (FE)",
+          "summary": "A Japanese national examination on the fundamentals for IT engineers. It covers algorithms, networks, databases, information security and so on.",
+          "target": "People aiming to become IT engineers, and people who want to learn IT fundamentals systematically.",
+          "format": "Subject A and Subject B are both multiple choice (CBT, available year-round)",
+          "difficulty": 3,
+          "spec": [
+            "Exam time: Subject A 90 minutes, Subject B 100 minutes (190 minutes in total)",
+            "Number of questions: Subject A 60, Subject B 20",
+            "Passing line: 600 or more (out of 1,000) in each of Subject A and Subject B",
+            "Exam fee: 7,500 yen (tax included)"
+          ],
+          "exam_method": [
+            "It is a CBT exam that can be taken year-round.",
+            "You choose the date, time and test center yourself when you apply. There are test centers all over Japan.",
+            "Because you decide the exam date yourself, it is easy to fit the exam to your study plan.",
+            "Because of a system replacement, the exam is scheduled to be suspended from December 28, 2026 and to resume in late January 2027. Check the latest status with IPA before planning to take it."
+          ],
+          "how_to_apply": [
+            "Check the application period and the exam format on IPA's list of examination categories",
+            "Follow the guidance to the application site, choose the date, time and test center, and apply"
+          ],
+          "official_url": "https://www.ipa.go.jp/shiken/kubun/list.html"
+        },
+        {
+          "name": "Registered Information Security Specialist Examination (SC)",
+          "summary": "A Japanese national qualification for cybersecurity professionals. It has Subject A (multiple choice), which tests knowledge, and Subject B (written answers), which tests applied ability.",
+          "target": "People responsible for planning, designing and operating security measures.",
+          "format": "Subjects A-1 and A-2: multiple choice. Subject B: written answers (CBT in fiscal 2026)",
+          "difficulty": 4,
+          "spec": [
+            "Exam time: Subject A-1 50 minutes, Subject A-2 40 minutes, Subject B 150 minutes",
+            "Number of questions: Subject A-1 30, Subject A-2 25, Subject B answer 2 out of 4",
+            "Passing line: 60 or more out of 100 in each subject (the standard must be met in every subject)",
+            "Exam fee: 7,500 yen (tax exempt)"
+          ],
+          "exam_method": [
+            "In fiscal 2026 it is a CBT exam held twice a year, in a first and a second session. Subject A and Subject B are taken in separate periods.",
+            "For the second session of fiscal 2026, applications are scheduled for January 27 to February 27, 2027, Subject A for February 20 to March 2, and Subject B for March 16 to March 28.",
+            "A new examination system is planned from fiscal 2027, so always check the latest information on IPA's official page.",
+            "Passing the exam alone does not let you use the title. After passing, you need to apply to IPA for registration."
+          ],
+          "how_to_apply": [
+            "Check that year's application period and exam schedule on IPA's official page",
+            "Apply online and pay the exam fee",
+            "After passing, apply to IPA for registration to be able to use the title (registration takes place twice a year)"
+          ],
+          "official_url": "https://www.ipa.go.jp/shiken/kubun/sc.html"
+        }
+      ]
+    },
+    {
+      "name": "International (certifications from private organizations)",
+      "items": [
+        {
+          "name": "CompTIA Security+",
+          "summary": "A vendor-neutral international certification on the fundamentals and practical knowledge of security.",
+          "target": "People entering the security field, and IT practitioners.",
+          "format": "Multiple-choice and performance-based questions",
+          "difficulty": 3,
+          "spec": [
+            "Exam time: 90 minutes",
+            "Number of questions: up to 90 (including multiple-choice and performance-based questions)",
+            "Passing line: 750 or more (on a scale of 100 to 900)",
+            "Exam fee: check the official site (the published price as of January 2025 was 404 US dollars; it varies by region and time)"
+          ],
+          "exam_method": [
+            "Besides taking it at a test center, you can choose to take it online from home or the office (OnVUE).",
+            "You book the exam date and time with Pearson VUE using a voucher.",
+            "Taking it online requires checking the conditions for your testing environment (camera, microphone and so on). Check the conditions on the official site.",
+            "The figures above are for the current version (SY0-701). A move to a new version has been announced, so check on the official site which version you will take."
+          ],
+          "how_to_apply": [
+            "Check the exam content and how to prepare on CompTIA's official site",
+            "Buy an exam voucher",
+            "On the Pearson VUE booking site, choose the date, time and test center (or delivery method) and book"
+          ],
+          "official_url": "https://www.comptia.org/en-us/certifications/security/"
+        },
+        {
+          "name": "CISSP (Certified Information Systems Security Professional)",
+          "summary": "An advanced international certification for information security managers. Questions come from eight domains.",
+          "target": "People with work experience who are involved in managing or designing security.",
+          "format": "Multiple-choice and similar questions (computerized adaptive testing, CAT). Available in several languages, including Japanese",
+          "difficulty": 5,
+          "spec": [
+            "Exam time: 3 hours",
+            "Number of questions: 100 to 150 (it is adaptive, so the number differs by candidate)",
+            "Passing line: 700 or more (out of 1,000)",
+            "Exam fee: 749 US dollars (it changes with tax and exchange rates, so check the official site)"
+          ],
+          "exam_method": [
+            "It is taken at a test center (Pearson VUE).",
+            "With Pearson VUE you can choose and book the date, time and test center yourself.",
+            "To be certified, you need a certain amount of work experience as well as passing the exam. Check the conditions in ISC2's official information."
+          ],
+          "how_to_apply": [
+            "Check the requirements (such as work experience) on ISC2's official site",
+            "Register on ISC2's application page and agree to the terms",
+            "After registering, book the date, time and test center with Pearson VUE"
+          ],
+          "official_url": "https://www.isc2.org/Certifications/CISSP",
+          "apply_url": "https://www.isc2.org/register-for-exam?exam=CISSP"
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 // tools/build_site.py が data/ から自動生成しています。直接編集しないでください。
 window.CYBER_DATA = {
+ "updated": "2026-11-16",
  "lessons": {
   "beginner": {
    "level": "beginner",

@@ -1,0 +1,185 @@
+{
+  "level": "intermediate",
+  "level_name": "Intermediate",
+  "description": "How networks, cryptography and the web work, and the typical defenses used in organizations (roughly the level of Japan's Information Security Management and Fundamental Information Technology Engineer examinations)",
+  "lessons": [
+    {
+      "id": "I01",
+      "category": "Networking",
+      "title": "TCP/IP and port numbers",
+      "summary": "Knowing how communication works and what port numbers are makes attacks and defenses easier to understand.",
+      "content": [
+        "Communication on the internet uses a combination of agreed rules (protocols) called TCP/IP.",
+        "An IP address identifies which computer, and a port number identifies which service on that computer.",
+        "Common port numbers: HTTP = 80, HTTPS = 443, SSH = 22, DNS = 53, SMTP = 25, RDP (Remote Desktop) = 3389.",
+        "TCP delivers data reliably (it sets up a connection with a three-way handshake). UDP skips the checks and sends quickly.",
+        "A port left open unnecessarily becomes an entry point for attacks, so the basic rule is to stop and close services you do not use."
+      ],
+      "key_points": ["IP = which device, port = which service", "443 = HTTPS, 22 = SSH, 53 = DNS, 3389 = RDP", "Close ports you do not need"],
+      "keywords": ["TCP/IP", "port number", "TCP", "UDP", "three-way handshake"]
+    },
+    {
+      "id": "I02",
+      "category": "Networking",
+      "title": "Firewalls, IDS, IPS and WAF",
+      "summary": "Understand the different roles of the main devices and mechanisms that protect a network.",
+      "content": [
+        "Firewall: allows or denies traffic based on rules such as IP addresses and port numbers.",
+        "IDS (intrusion detection system): detects malicious traffic and alerts the administrator. It does not block.",
+        "IPS (intrusion prevention system): detects malicious traffic and blocks it automatically.",
+        "WAF (web application firewall): inspects the content of traffic to a web application and blocks attacks such as SQL injection and XSS.",
+        "DMZ (demilitarized zone): an intermediate area between the internal network and the internet where public-facing servers are placed. It limits damage to the internal network even if a public server is compromised."
+      ],
+      "key_points": ["IDS only detects, IPS detects and blocks", "A WAF specializes in web application attacks", "Put public servers in the DMZ"],
+      "keywords": ["firewall", "IDS", "IPS", "WAF", "DMZ"]
+    },
+    {
+      "id": "I03",
+      "category": "Cryptography",
+      "title": "Symmetric-key and public-key cryptography",
+      "summary": "Encryption schemes either use the same key on both sides or use a pair of keys.",
+      "content": [
+        "Symmetric-key cryptography: the same key is used to encrypt and decrypt. It is fast, but there is the \"key distribution problem\" of getting the key to the other party safely. Example: AES.",
+        "Public-key cryptography: uses a pair of keys, a public key and a private key. Data encrypted with a public key can only be decrypted with the matching private key. Examples: RSA, elliptic-curve cryptography.",
+        "Because public-key cryptography is slow, real communication (such as TLS) uses \"hybrid encryption\": the symmetric key is shared safely using public-key techniques, and the data itself is encrypted with symmetric-key cryptography.",
+        "Number of keys needed: when n people communicate with each other, symmetric-key cryptography needs n(n-1)/2 keys, and public-key cryptography needs 2n keys (one pair each)."
+      ],
+      "key_points": ["Symmetric = fast, but key distribution is the issue (AES)", "Public-key = easy key distribution, but slow (RSA)", "TLS uses hybrid encryption", "Number of keys: symmetric n(n-1)/2, public-key 2n"],
+      "keywords": ["symmetric-key cryptography", "public-key cryptography", "AES", "RSA", "key distribution problem", "hybrid encryption"]
+    },
+    {
+      "id": "I04",
+      "category": "Cryptography",
+      "title": "Hash functions",
+      "summary": "A hash function produces a fixed-length value, like a fingerprint, from data.",
+      "content": [
+        "A hash function produces a fixed-length value (a hash value) from data of any length. Example: SHA-256.",
+        "Properties: changing even one character of the original data changes the hash value greatly. The original data cannot be recovered from the hash value (it is one-way).",
+        "Uses: detecting tampering with files (checking integrity), storing passwords, and digital signatures.",
+        "Passwords are not stored as they are. A salt (a random value) is added and the result is hashed. It is also recommended to use deliberately slow schemes such as bcrypt or Argon2.",
+        "MD5 and SHA-1 have known security problems, so they are not used for security purposes."
+      ],
+      "key_points": ["One-way: cannot be reversed", "Can be used to detect tampering", "Hash passwords with a salt", "MD5 and SHA-1 are deprecated"],
+      "keywords": ["hash function", "SHA-256", "salt", "bcrypt", "one-way", "tamper detection"]
+    },
+    {
+      "id": "I05",
+      "category": "Cryptography",
+      "title": "Digital signatures and digital certificates (PKI)",
+      "summary": "A digital signature lets you check who created something and whether it has been tampered with.",
+      "content": [
+        "Digital signature: the sender signs with their own private key, and the recipient verifies with the sender's public key (the keys are used the opposite way round from encryption).",
+        "This confirms who the sender is (authenticity), that the data has not been altered (integrity), and that the sender cannot deny having sent it (non-repudiation).",
+        "Digital certificate: a certificate authority (CA) vouches that \"this public key really belongs to this person (or site)\".",
+        "PKI (public key infrastructure): the whole system of certificate authorities, certificates, revocation information and so on that supports trust in public keys.",
+        "A browser verifies a website's certificate and shows a warning if there is a problem."
+      ],
+      "key_points": ["Sign with the private key, verify with the public key", "Authenticity, integrity, non-repudiation", "A certificate authority (CA) vouches for the owner of a public key"],
+      "keywords": ["digital signature", "digital certificate", "certificate authority", "CA", "PKI", "non-repudiation"]
+    },
+    {
+      "id": "I06",
+      "category": "Web security",
+      "title": "Common web application vulnerabilities",
+      "summary": "How the vulnerabilities often found in web applications work, and what developers should do about them.",
+      "content": [
+        "SQL injection: entering specially crafted text into an input field to manipulate the commands (SQL) sent to the database. Defense: use placeholders (parameterized queries).",
+        "Cross-site scripting (XSS): embedding a malicious script in a web page so that it runs in the visitor's browser. Defense: escape output.",
+        "Cross-site request forgery (CSRF): making a logged-in user perform an action they did not intend (such as a money transfer or a settings change). Defense: one-time tokens and cookies with the SameSite attribute.",
+        "Directory traversal: including \"../\" and similar in a file name to read files that are not meant to be public. Defense: do not accept file names directly, and validate paths.",
+        "The common principle is \"never trust user input\"."
+      ],
+      "key_points": ["SQL injection → placeholders", "XSS → escape on output", "CSRF → tokens and SameSite", "Never trust input"],
+      "keywords": ["SQL injection", "XSS", "CSRF", "directory traversal", "placeholder", "escaping"]
+    },
+    {
+      "id": "I07",
+      "category": "Threats",
+      "title": "Social engineering and targeted attacks",
+      "summary": "Attack methods that exploit gaps in human psychology instead of technology.",
+      "content": [
+        "Social engineering: getting information out of people by exploiting carelessness or trust. Examples: a phone call from someone posing as an insider, looking over someone's shoulder (shoulder surfing), and searching through trash for documents (dumpster diving).",
+        "Targeted attack: aiming at a specific organization and sending malware in emails that look related to its work.",
+        "Business email compromise (BEC): impersonating a business partner or an executive to have money sent to a fake account.",
+        "Watering hole attack: tampering with a website the targets visit often, so that visitors become infected.",
+        "Defenses: education and training, confirming identity by a means other than the phone call or email itself (for example when a payee account changes), and a system for reporting suspicious emails."
+      ],
+      "key_points": ["Attacks that exploit human psychology", "With BEC, watch for changes of payee account", "Confirming through another channel is effective"],
+      "keywords": ["social engineering", "targeted attack", "business email compromise", "BEC", "watering hole attack", "shoulder surfing"]
+    },
+    {
+      "id": "I08",
+      "category": "Threats",
+      "title": "DoS and DDoS attacks",
+      "summary": "Attacks that stop a service with huge amounts of traffic and damage availability.",
+      "content": [
+        "DoS attack: making a service unusable, for example by sending a server a huge number of requests.",
+        "DDoS attack: a distributed DoS attack launched all at once from many devices (a botnet of hijacked PCs and IoT devices).",
+        "Of the three CIA elements, these attacks damage availability.",
+        "Defenses: using a CDN or a DDoS protection service, limiting the volume of traffic (rate limiting), and changing the default passwords of IoT devices so that your own devices are not turned into bots."
+      ],
+      "key_points": ["Attacks on availability", "DDoS uses botnets", "Changing default passwords on IoT devices is also a defense"],
+      "keywords": ["DoS attack", "DDoS attack", "botnet", "availability", "rate limiting"]
+    },
+    {
+      "id": "I09",
+      "category": "Management and operations",
+      "title": "Access control and the principle of least privilege",
+      "summary": "The basic rule is to give only the necessary privileges to the people who need them.",
+      "content": [
+        "Authentication: confirming that a user is who they claim to be.",
+        "Authorization: deciding what an authenticated user is allowed to do.",
+        "Principle of least privilege: give only the minimum privileges needed for the job. This includes not doing everyday work with administrator privileges.",
+        "Separation of duties: do not concentrate authority in one person. For example, have different people make a request and approve it, to prevent fraud and mistakes.",
+        "Delete or disable the accounts of people who have moved or left promptly, and review privileges regularly."
+      ],
+      "key_points": ["Authentication = who you are, authorization = what you may do", "The principle of least privilege", "Remove leavers' accounts and review privileges"],
+      "keywords": ["access control", "authentication", "authorization", "principle of least privilege", "separation of duties"]
+    },
+    {
+      "id": "I10",
+      "category": "Management and operations",
+      "title": "Risk management and the ISMS",
+      "summary": "An organization assesses its risks, chooses how to treat them, and manages them.",
+      "content": [
+        "Risk arises from the combination of \"assets\", \"threats\" and \"vulnerabilities\".",
+        "The four ways to treat a risk: risk reduction (apply controls to reduce it), risk avoidance (stop the activity that causes it), risk transfer (move it to another party through insurance or outsourcing), and risk retention (accept it).",
+        "ISMS (information security management system): the system by which an organization manages information security continuously. The international standard is ISO/IEC 27001.",
+        "The PDCA cycle (Plan, Do, Check, Act) is repeated to keep improving.",
+        "An information security policy is usually made up of three layers: the basic policy, the standards, and the procedures."
+      ],
+      "key_points": ["Risk = assets × threats × vulnerabilities", "Reduce, avoid, transfer, retain", "ISMS (ISO/IEC 27001) and PDCA"],
+      "keywords": ["risk management", "risk reduction", "risk avoidance", "risk transfer", "risk retention", "ISMS", "ISO/IEC 27001", "PDCA"]
+    },
+    {
+      "id": "I11",
+      "category": "Management and operations",
+      "title": "Log management and monitoring",
+      "summary": "Logs are essential for finding problems early and for investigating the cause after an incident.",
+      "content": [
+        "A log is a record of what a system did and what was done to it (login history, access records, errors and so on).",
+        "Collecting and monitoring logs lets you find unauthorized login attempts and abnormal traffic quickly.",
+        "If the clocks on different devices disagree, their logs cannot be compared in an investigation, so the time is synchronized with NTP.",
+        "To stop the logs themselves being altered or deleted, forward them to a separate server for storage and restrict access.",
+        "A large number of failed logins in a short time may indicate a brute-force attack or a credential stuffing attack."
+      ],
+      "key_points": ["Logs enable early detection and investigation", "Synchronize time with NTP", "Store logs on a separate server", "Many failed logins are a sign of attack"],
+      "keywords": ["log", "monitoring", "NTP", "brute-force attack", "time synchronization"]
+    },
+    {
+      "id": "I12",
+      "category": "Laws and guidelines",
+      "title": "Security-related laws (Japan)",
+      "summary": "The main laws in Japan that relate to security.",
+      "content": [
+        "Act on Prohibition of Unauthorized Computer Access: prohibits logging in with someone else's ID and password without permission, and acts that assist this (such as obtaining or providing IDs improperly).",
+        "Act on the Protection of Personal Information: requires businesses that handle personal information to take security control measures and to report leaks, among other things.",
+        "\"Crimes related to electromagnetic records of unauthorized commands\" in the Penal Code (the so-called virus creation offense): prohibits creating, providing or storing malware without a legitimate reason.",
+        "Basic Act on Cybersecurity: sets out the foundations of the national cybersecurity policy.",
+        "When you try out attack techniques for learning, do so only in your own environment or in an authorized practice environment (such as a CTF)."
+      ],
+      "key_points": ["Logging in with someone else's ID without permission breaks the unauthorized access law", "Creating or storing malware is also a crime", "Practice attacks only in authorized environments"],
+      "keywords": ["Act on Prohibition of Unauthorized Computer Access", "Act on the Protection of Personal Information", "virus creation offense", "Basic Act on Cybersecurity", "CTF"]
+    }
+  ]
+}
