@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-31",
+  "updated": "2026-11-16",
   "groups": [
     {
       "title": "最新の脅威・注意喚起をチェックする",
@@ -33,7 +33,7 @@
         {"name": "IPA 安全なウェブサイトの作り方", "url": "https://www.ipa.go.jp/security/vuln/websecurity/about.html", "level": "中級〜", "description": "Webアプリの代表的な脆弱性と対策を解説した、開発者向けの定番資料。"},
         {"name": "OWASP Top 10（英語）", "url": "https://owasp.org/www-project-top-ten/", "level": "上級", "description": "Webアプリの重大なセキュリティリスクのランキング。数年ごとに改訂されます。"},
         {"name": "MITRE ATT&CK（英語）", "url": "https://attack.mitre.org/", "level": "上級", "description": "実際の攻撃事例から、攻撃者の戦術・技術を体系化したナレッジベース。"},
-        {"name": "NIST SP 800-61（インシデント対応・英語）", "url": "https://csrc.nist.gov/pubs/sp/800/61/r3/final", "level": "上級", "description": "インシデント対応の国際的な指針。"}
+        {"name": "NIST SP 800-61（インシデント対応・英語）", "url": "https://csrc.nist.gov/pubs/sp/800/61/r3/final", "level": "上級", "description": "米国NISTによるインシデント対応の指針（2025年改訂のRev.3）。世界的に参照されています。"}
       ]
     },
     {
