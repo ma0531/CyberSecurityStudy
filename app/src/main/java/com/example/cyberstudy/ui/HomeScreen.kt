@@ -52,7 +52,7 @@ fun HomeScreen(
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
             Text(
-                "初級・中級・上級・専門の4レベルで、レッスンを読んで学び、問題で理解度を確かめましょう。",
+                "初級・中級・上級・超級の4レベルで、レッスンを読んで学び、問題で理解度を確かめましょう。",
                 style = MaterialTheme.typography.bodyMedium,
             )
 
