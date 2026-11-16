@@ -88,10 +88,18 @@ const wait = (ms) => new Promise((r) => setTimeout(r, ms));
     bar.barTop === 0 && bar.metaLeft < bar.width / 4 && bar.langRight > bar.width * 3 / 4);
   check("右上に「日本語」「English」があり、日本語が選択中", bar.labels.join(",") === "日本語,English" && bar.active === "日本語");
 
+  // タブのアイコン（盾と南京錠）が指定されていて、ファイルを読み込める
+  const icons = await page.evaluate(async () => {
+    const hrefs = [...document.querySelectorAll('link[rel~="icon"], link[rel="apple-touch-icon"]')].map((l) => l.href);
+    const ok = await Promise.all(hrefs.map((u) => fetch(u).then((r) => r.ok).catch(() => false)));
+    return { names: hrefs.map((u) => u.split("/").pop()), ok };
+  });
+  check("タブのアイコンが読み込める", icons.names.includes("favicon.svg") && icons.ok.length === 3 && icons.ok.every(Boolean), icons.names.join(", "));
+
   const heroWidth = await page.$eval(".hero-visual img", (img) => (img.complete ? img.naturalWidth : 0));
   check("ヒーローの写真が表示される", heroWidth > 0, `幅 ${heroWidth}px`);
   check("ホームの文言（入口カードと案内）",
-    (await hasText("知識（初級～上級）")) && (await hasText("初級から上級の問題から出題")) &&
+    (await hasText("知識（初級～専門）")) && (await hasText("初級から専門の問題から出題")) &&
     (await hasText("関連する資格一覧と受験方法と申し込みサイト")) && (await hasText("「資格一覧」で")));
   const quickText = await page.$eval(".quick-card", (el) => el.textContent);
   check("確認クイズに問題が出る（null 表示なし）", quickText.length > 0 && !quickText.includes("null"));
@@ -205,7 +213,7 @@ const wait = (ms) => new Promise((r) => setTimeout(r, ms));
   await scan("home");
   const metaEn = await page.$eval("#site-meta", (el) => el.textContent);
   check("英語版の左上の表示", metaEn === `Last updated: ${updated}　Created by Ma-kun`, metaEn);
-  for (const h of ["#/lessons/beginner", "#/lessons/intermediate", "#/lessons/advanced", "#/lesson/B10", "#/lesson/A03", "#/websites", "#/quiz", "#/nothing"]) {
+  for (const h of ["#/lessons/beginner", "#/lessons/intermediate", "#/lessons/advanced", "#/lessons/expert", "#/lesson/B10", "#/lesson/A03", "#/lesson/E05", "#/websites", "#/quiz", "#/nothing"]) {
     await openEn(h);
     await scan(h);
   }

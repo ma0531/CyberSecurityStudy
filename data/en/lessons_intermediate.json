@@ -180,6 +180,36 @@
       ],
       "key_points": ["Logging in with someone else's ID without permission breaks the unauthorized access law", "Creating or storing malware is also a crime", "Practice attacks only in authorized environments"],
       "keywords": ["Act on Prohibition of Unauthorized Computer Access", "Act on the Protection of Personal Information", "virus creation offense", "Basic Act on Cybersecurity", "CTF"]
+    },
+    {
+      "id": "I13",
+      "category": "Networking",
+      "title": "Email sender authentication (SPF, DKIM and DMARC)",
+      "summary": "Mechanisms that let the receiving side check whether an email was sent from a legitimate server for the sender's domain.",
+      "content": [
+        "The sender (From) of an email is easy to forge. Sender authentication lets the receiving side check whether an email was sent from a legitimate server for that domain.",
+        "SPF: the domain's DNS lists the IP addresses of the servers allowed to send mail for the domain, and the receiver compares the sending IP address with that list.",
+        "DKIM: the sending server adds a digital signature to the email, and the receiver verifies it with a public key published in DNS. This also confirms that the email was not altered on the way.",
+        "DMARC: checks that the domain authenticated by SPF or DKIM matches the domain in the From address. The domain owner can declare how failing mail should be handled (none, quarantine or reject) and can receive reports on the results.",
+        "What sender authentication prevents is spoofing that uses your exact domain. It does not stop mail from a different domain with a similar name, or from a legitimate account that has been taken over."
+      ],
+      "key_points": ["SPF = checking the sending IP address", "DKIM = verifying a digital signature", "DMARC = alignment with From, and a declared policy for failures", "It does not stop a different domain with a similar name"],
+      "keywords": ["SPF", "DKIM", "DMARC", "spoofed email", "DNS"]
+    },
+    {
+      "id": "I14",
+      "category": "Networking",
+      "title": "Wireless LAN security (WPA2 and WPA3)",
+      "summary": "Anyone can intercept radio signals, so the choice of encryption and authentication method matters for a wireless LAN.",
+      "content": [
+        "Anyone within range can intercept a wireless LAN, so encryption and authentication are essential. The old WEP method can be cracked in a short time and must not be used.",
+        "With WPA2-Personal (a pre-shared key), if the exchange at connection time (the four-way handshake) is captured, the password can be brute-forced offline. A long, hard-to-guess password is needed.",
+        "WPA3-Personal uses a method called SAE, which makes offline brute-forcing from captured data difficult.",
+        "For organizations, the enterprise method that authenticates each user (IEEE 802.1X, using an authentication server) is a better fit. When someone leaves, there is no shared password to change.",
+        "Separate the guest network from the internal one, turn off weak features such as the WPS PIN method, and keep the router's firmware up to date."
+      ],
+      "key_points": ["Do not use WEP", "Use a long password with WPA2-Personal", "WPA3 (SAE) resists offline brute-forcing", "Use 802.1X in organizations and separate the guest network"],
+      "keywords": ["WPA2", "WPA3", "SAE", "IEEE 802.1X", "WEP", "WPS"]
     }
   ]
 }

@@ -17,7 +17,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-LEVELS = ["beginner", "intermediate", "advanced"]
+LEVELS = ["beginner", "intermediate", "advanced", "expert"]
 
 # ひらがな・カタカナ・漢字（英語版に残っていたら訳し漏れ）
 JAPANESE = re.compile(r"[぀-ヿ一-鿿]")

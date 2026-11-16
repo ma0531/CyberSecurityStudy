@@ -30,6 +30,7 @@ val Level.color: Color
         Level.BEGINNER -> Color(0xFF2E7D32)
         Level.INTERMEDIATE -> Color(0xFF1565C0)
         Level.ADVANCED -> Color(0xFFC62828)
+        Level.EXPERT -> Color(0xFF6A1B9A)
     }
 
 /** 各画面共通のトップバー付きレイアウト（onBack が null なら戻るボタンなし） */

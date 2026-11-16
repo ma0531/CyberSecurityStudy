@@ -1,0 +1,98 @@
+{
+  "level": "expert",
+  "level_name": "Expert",
+  "description": "Highly specialized topics handled by security professionals, such as exploiting and mitigating vulnerabilities, attacks on identity infrastructure, malware analysis and detection engineering (for people who have finished the advanced level)",
+  "lessons": [
+    {
+      "id": "E01",
+      "category": "Vulnerabilities and mitigations",
+      "title": "Memory corruption vulnerabilities and mitigations",
+      "summary": "Understand how memory corruption such as buffer overflows is exploited and how it is defended against.",
+      "content": [
+        "In languages where you manage memory yourself, such as C and C++, memory corruption vulnerabilities occur, such as buffer overflows (writing beyond the allocated area) and use after free (using memory that has already been freed).",
+        "In a stack buffer overflow, the return address of a function can be overwritten to take over the program's flow of execution.",
+        "Typical mitigations: stack canaries (detecting changes to a value placed just before the return address), DEP/NX (not allowing code placed in data areas to run) and ASLR (randomizing the memory layout each time).",
+        "ROP (return-oriented programming) chains together fragments of instructions already in the program (gadgets) and runs them, which gets around DEP/NX. ASLR is defeated by combining the attack with a separate vulnerability that leaks addresses (an information leak).",
+        "More fundamental measures are control-flow integrity (CFI, such as shadow stacks) and moving to memory-safe languages such as Rust. Mitigations make attacks harder, but the vulnerability itself still has to be fixed."
+      ],
+      "key_points": ["Overwriting the return address takes over execution", "Stack canaries, DEP/NX and ASLR", "ROP gets around DEP/NX, and an information leak defeats ASLR", "Memory-safe languages are the fundamental measure"],
+      "keywords": ["buffer overflow", "use after free", "ROP", "ASLR", "DEP/NX", "stack canary", "CFI"]
+    },
+    {
+      "id": "E02",
+      "category": "Identity infrastructure",
+      "title": "Attacks on Active Directory and how to defend it",
+      "summary": "How Active Directory, the center of account management in an organization, is targeted after an intrusion, and how to defend it.",
+      "content": [
+        "Active Directory (AD) is the platform many organizations use to manage accounts and permissions centrally. After getting into an ordinary user's device, attackers move laterally, aiming for AD administrator rights (domain admin).",
+        "Pass-the-hash: an NTLM hash stolen from a device's memory or elsewhere is used for authentication as it is, in place of the password. The more devices administrators sign in to, the more chances there are to steal one.",
+        "Kerberoasting: taking advantage of the fact that any domain user can request service tickets, the attacker takes tickets away and cracks the service account's password offline.",
+        "Golden ticket: the attacker steals the key of the krbtgt account and forges authentication tickets (TGTs) for any user. It means the whole domain is compromised, and recovery involves changing the krbtgt password twice.",
+        "Defenses: split administrator accounts into tiers, and do not let higher-tier administrators sign in to lower-tier devices (the tier model). Use long random passwords or gMSAs for service accounts. Use LAPS to give each device a different local administrator password. Monitor for unusual ticket requests and abuse of directory replication (DCSync)."
+      ],
+      "key_points": ["The attacker's goal is domain admin", "Pass-the-hash uses a stolen hash for authentication as it is", "Kerberoasting cracks service accounts offline", "Defend with the tier model, gMSAs and LAPS"],
+      "keywords": ["Active Directory", "Kerberos", "pass-the-hash", "Kerberoasting", "golden ticket", "DCSync", "LAPS"]
+    },
+    {
+      "id": "E03",
+      "category": "Analysis",
+      "title": "Malware analysis (static and dynamic analysis)",
+      "summary": "Techniques for finding out what malware does and extracting information that can be used for detection and response.",
+      "content": [
+        "The aim of malware analysis is to find out what the malware does (its functions), what it communicates with, and how it can be detected and removed, and to produce IoCs and detection rules.",
+        "Static analysis: examining the malware without running it. Start by checking the hash, the strings it contains and the functions it imports, and read the code with a disassembler or decompiler if needed.",
+        "Dynamic analysis: actually running it in an isolated environment (a sandbox or an analysis virtual machine) and observing its behavior in files, the registry, processes and network traffic.",
+        "Much malware hinders static analysis with packing (compression or encryption) and obfuscation, and tries to escape dynamic analysis by detecting virtual machines or debuggers, or by waiting a long time. That is why the two are combined.",
+        "Do the analysis in a dedicated environment cut off from the production network. YARA rules are a format for classifying and detecting malware by features such as strings and byte sequences."
+      ],
+      "key_points": ["Static analysis = examine without running; dynamic analysis = run and observe", "Combine both, because of packing and anti-analysis tricks", "Work in an isolated, dedicated environment", "Turn the results into IoCs and YARA rules"],
+      "keywords": ["static analysis", "dynamic analysis", "sandbox", "packing", "obfuscation", "YARA", "disassembly"]
+    },
+    {
+      "id": "E04",
+      "category": "Monitoring",
+      "title": "Detection engineering and threat hunting",
+      "summary": "The work of building and maintaining rules that find attacks, and the activity of looking for traces of attacks without waiting for alerts.",
+      "content": [
+        "Detection engineering is the ongoing work of designing, testing and improving the rules that find attacks. \"Detection as code\", in which rules are managed as code and changes are reviewed and tested, is spreading.",
+        "The Pyramid of Pain: attackers can easily change hash values and IP addresses, but their methods (TTPs) are hard to change. The more a detection is based on methods, the more it costs the attacker.",
+        "Attackers misuse legitimate tools that come with the OS (such as PowerShell) to stay unnoticed (living off the land). Detection needs to focus on behavior, not on the features of files.",
+        "Sigma is a common format for detection rules that does not depend on a particular product. Rules are converted into each SIEM's query language.",
+        "Threat hunting does not wait for alerts: it starts from a hypothesis that \"we may already have been breached\" and searches the logs for traces of an attack. Methods that are found become new detection rules. It also involves tuning false positives and checking coverage against MITRE ATT&CK."
+      ],
+      "key_points": ["Detection based on methods (TTPs) is effective", "Detect the misuse of legitimate tools by behavior", "Sigma = a product-independent format for detection rules", "Threat hunting starts from a hypothesis"],
+      "keywords": ["detection engineering", "threat hunting", "Pyramid of Pain", "TTP", "living off the land", "Sigma", "detection as code"]
+    },
+    {
+      "id": "E05",
+      "category": "Cryptography",
+      "title": "Pitfalls in implementing cryptography, and post-quantum cryptography",
+      "summary": "Even secure cryptography is broken when it is used wrongly. This lesson also covers the move to new cryptography that prepares for quantum computers.",
+      "content": [
+        "Even a secure algorithm is broken when it is used wrongly. The basic rule is not to invent your own cryptography, and to use authenticated encryption (AEAD, such as AES-GCM or ChaCha20-Poly1305) from a trusted library.",
+        "Nonce reuse: in AES-GCM, using the same pair of key and nonce (a value used only once) again leaks information about the plaintext and also breaks tamper detection. In ECB mode, identical plaintext blocks become identical ciphertext, so patterns in the data remain.",
+        "Padding oracle attack: in CBC mode, if differences in errors or the like reveal whether the padding was correct on decryption, the plaintext can be recovered without the key. Side-channel attack: secrets can be inferred from differences such as processing time, so comparisons of secret values are done in constant time.",
+        "If a large-scale quantum computer is built, Shor's algorithm will break RSA and elliptic curve cryptography. Symmetric-key cryptography and hash functions can cope by using longer keys and outputs (such as AES-256).",
+        "In 2024 NIST published ML-KEM (key establishment, FIPS 203), ML-DSA (signatures, FIPS 204) and SLH-DSA (signatures, FIPS 205) as standards for post-quantum cryptography (PQC). To prepare for attacks that collect ciphertext now and decrypt it in the future (harvest now, decrypt later), migration is under way using designs that make it easy to swap cryptography (crypto-agility) and combinations with conventional methods (hybrid)."
+      ],
+      "key_points": ["Do not invent your own cryptography; use authenticated encryption (AEAD)", "Never reuse a nonce", "Information leaks through differences in errors and processing time", "Quantum computers will break RSA and elliptic curve cryptography, so migrate to PQC"],
+      "keywords": ["AEAD", "AES-GCM", "nonce", "padding oracle attack", "side-channel attack", "post-quantum cryptography", "ML-KEM", "crypto-agility"],
+      "reference_url": "https://csrc.nist.gov/projects/post-quantum-cryptography"
+    },
+    {
+      "id": "E06",
+      "category": "Cloud",
+      "title": "Advanced attacks on the cloud and how to defend against them",
+      "summary": "In the cloud, identities and permissions are at the center of attack and defense. Learn the typical attack paths and countermeasures.",
+      "content": [
+        "In the cloud, identity (IAM) is at the center of defense, more than the network perimeter. Attackers use leaked access keys and excessive permissions as a foothold and widen their permissions from there.",
+        "Abuse of the metadata service: a virtual machine can obtain temporary credentials from a special internal address (169.254.169.254). If a web app has an SSRF vulnerability, these credentials can be stolen. A method that requires obtaining a token first, such as AWS IMDSv2, makes them hard to obtain with a simple SSRF.",
+        "IAM privilege escalation: with permission to rewrite policies, or to pass a more powerful role to a service (such as PassRole), a user can give themselves the equivalent of administrator rights. Watch out for combinations of permissions that look harmless on their own.",
+        "Confused deputy: in the mechanism for assuming a role in another account, a third-party service is tricked into accessing a different customer's resources. It is prevented with conditions such as an external ID.",
+        "Defenses: get rid of long-lived access keys and use temporary credentials. Keep reviewing least privilege. Record activity logs (such as AWS CloudTrail) in all regions and keep them in a separate account. Forbid dangerous operations with organization-wide guardrails."
+      ],
+      "key_points": ["Identity (IAM) is the center of cloud defense", "Credentials can be stolen through SSRF and the metadata service", "Watch for privilege escalation through combinations of permissions", "Temporary credentials, least privilege and activity logs"],
+      "keywords": ["IAM", "metadata service", "SSRF", "IMDSv2", "privilege escalation", "confused deputy", "CloudTrail"]
+    }
+  ]
+}

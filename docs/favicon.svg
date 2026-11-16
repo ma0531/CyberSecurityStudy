@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- タブに表示するアイコン：盾（守る）の中に南京錠（セキュリティ） -->
+  <path d="M32 3 56 12v18c0 15-10 26-24 31C18 56 8 45 8 30V12z" fill="#0b7a6e"/>
+  <path d="M24 29v-6a8 8 0 0 1 16 0v6" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+  <rect x="19" y="28" width="26" height="19" rx="4" fill="#ffffff"/>
+  <circle cx="32" cy="35.5" r="3" fill="#0b7a6e"/>
+  <rect x="30.5" y="36.5" width="3" height="6.5" rx="1.5" fill="#0b7a6e"/>
+</svg>

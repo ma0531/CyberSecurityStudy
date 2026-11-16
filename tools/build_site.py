@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_DATA_DIR = ROOT / "data"
 DOCS_DIR = ROOT / "docs"
 
-LEVELS = ["beginner", "intermediate", "advanced"]
+LEVELS = ["beginner", "intermediate", "advanced", "expert"]
 
 
 def load_json(data_dir, filename):
