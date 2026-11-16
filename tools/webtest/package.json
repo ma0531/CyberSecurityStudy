@@ -1,0 +1,12 @@
+{
+  "name": "cyber-study-webtest",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Web版（docs/）をヘッドレスの Edge で操作して確かめるテスト",
+  "scripts": {
+    "test": "node test.js http://127.0.0.1:8800/index.html"
+  },
+  "dependencies": {
+    "puppeteer-core": "^23.11.1"
+  }
+}

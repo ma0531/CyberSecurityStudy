@@ -1,0 +1,163 @@
+{
+  "level": "advanced",
+  "level_name": "Advanced",
+  "description": "Practical and professional-level topics such as defensive design for organizations, incident response and secure development (roughly the level of Japan's Registered Information Security Specialist examination)",
+  "lessons": [
+    {
+      "id": "A01",
+      "category": "Web security",
+      "title": "OWASP Top 10",
+      "summary": "A list of the most serious security risks for web applications, referred to around the world.",
+      "content": [
+        "It is a ranking of the typical risks for web applications, published by OWASP (the Open Worldwide Application Security Project).",
+        "Main items in the 2021 edition: broken access control, cryptographic failures, injection, insecure design, security misconfiguration, vulnerable and outdated components, identification and authentication failures, software and data integrity failures, security logging and monitoring failures, and server-side request forgery (SSRF).",
+        "In the 2021 edition, \"broken access control\" came first. A typical example is being able to see someone else's data just by changing an ID in the URL.",
+        "\"Insecure design\" refers to a lack of consideration at the design stage, not a mistake in implementation. It is addressed with techniques such as threat modeling.",
+        "The 2025 edition has also been published. \"Broken access control\" is still first, \"security misconfiguration\" is second, \"software supply chain failures\" is third, and SSRF has been merged into \"broken access control\". The list is revised regularly, so check the latest edition on the official site."
+      ],
+      "key_points": ["The standard list of web application risks", "Broken access control was first in the 2021 edition", "Addressing security from the design stage matters", "Check the latest edition"],
+      "keywords": ["OWASP Top 10", "broken access control", "injection", "SSRF", "insecure design"],
+      "reference_url": "https://owasp.org/www-project-top-ten/"
+    },
+    {
+      "id": "A02",
+      "category": "Design",
+      "title": "Threat modeling (STRIDE)",
+      "summary": "A method for identifying the threats a system may face while it is still being designed.",
+      "content": [
+        "Threat modeling is the work of sorting out \"What are we building?\", \"What can go wrong?\", \"What are we going to do about it?\" and \"Did we do a good enough job?\".",
+        "You draw the system's structure, the flow of data and the trust boundaries in a data flow diagram (DFD), and then apply threats to it.",
+        "STRIDE is a way of classifying threats into six types.",
+        "S (Spoofing) → countered by authentication, T (Tampering) → integrity, R (Repudiation) → non-repudiation and logs, I (Information disclosure) → confidentiality, D (Denial of service) → availability, E (Elevation of privilege) → authorization.",
+        "Addressing problems at the design stage costs far less than fixing them after release (\"shift left\")."
+      ],
+      "key_points": ["Organize with a DFD and trust boundaries", "STRIDE = six categories of threat", "Addressing security at design time = shift left"],
+      "keywords": ["threat modeling", "STRIDE", "data flow diagram", "trust boundary", "shift left", "elevation of privilege"]
+    },
+    {
+      "id": "A03",
+      "category": "Incident response",
+      "title": "Incident response and the CSIRT",
+      "summary": "The procedure for keeping damage to a minimum when a security incident happens.",
+      "content": [
+        "The typical flow set out in NIST SP 800-61 Rev. 2: preparation → detection and analysis → containment, eradication and recovery → post-incident activity (applying lessons learned). Rev. 3, published in April 2025, was restructured around the functions of NIST CSF 2.0 (such as Detect, Respond and Recover), but the thinking behind this flow is still a useful reference.",
+        "Containment: to stop the damage spreading, you isolate infected devices from the network, for example. To preserve evidence, however, it is sometimes necessary to keep the device powered on so that the information in memory is not lost.",
+        "Eradication: removing the malware and the route of intrusion. Recovery: confirming that things are safe and bringing systems back.",
+        "CSIRT: the team within an organization that handles incident response. It acts as the point of contact inside and outside the organization and shares information.",
+        "Forensics: preserving evidence and investigating technically what happened. A record of how the evidence was handled (the chain of custody) is kept."
+      ],
+      "key_points": ["Preparation → detection and analysis → containment, eradication and recovery → post-incident activity", "Contain with evidence preservation in mind", "The CSIRT is at the center of the response"],
+      "keywords": ["incident response", "CSIRT", "NIST SP 800-61", "containment", "forensics", "evidence preservation"]
+    },
+    {
+      "id": "A04",
+      "category": "Design",
+      "title": "Zero trust and defense in depth",
+      "summary": "An approach that drops the assumption that \"the internal network is safe\" and verifies every access.",
+      "content": [
+        "Traditional perimeter defense: trust the internal network and protect the boundary with the outside (the firewall).",
+        "As cloud services and remote work spread, the boundary became blurred, and there was the problem that once an attacker got in, the damage spread easily inside.",
+        "Zero trust: \"never trust, always verify\". The user, the device, the location and so on are checked every time, and only the minimum necessary access is allowed (NIST SP 800-207).",
+        "Examples of building blocks: strong authentication (MFA), device health checks, micro-segmentation, EDR (detection and response on endpoints), and continuous monitoring.",
+        "Defense in depth: layering several controls so that if one is breached, the next one can stop the attack. It is used together with zero trust."
+      ],
+      "key_points": ["Never trust, always verify", "The limits of perimeter defense", "Defense in depth removes single points of failure"],
+      "keywords": ["zero trust", "perimeter defense", "defense in depth", "micro-segmentation", "EDR", "NIST SP 800-207"]
+    },
+    {
+      "id": "A05",
+      "category": "Monitoring",
+      "title": "SOC, SIEM and attack analysis (MITRE ATT&CK)",
+      "summary": "Collecting and analyzing logs from across an organization to detect and analyze attacks.",
+      "content": [
+        "SOC (security operations center): a team or facility dedicated to security monitoring.",
+        "SIEM: a system that collects logs from many kinds of devices, correlates them, and detects signs of attack.",
+        "Cyber kill chain: a model that divides an attack into the stages \"reconnaissance → weaponization → delivery → exploitation → installation → command and control → actions on objectives\". The earlier the chain is broken, the smaller the damage.",
+        "MITRE ATT&CK: a knowledge base that organizes the tactics (goals) and techniques (means) of real attackers. It is used, for example, to check how well your detection rules cover them.",
+        "IoC (indicator of compromise): a clue that points to a compromise, such as a malicious IP address or a file hash. IoCs are shared as threat intelligence."
+      ],
+      "key_points": ["A SIEM correlates logs", "Break the kill chain at an early stage", "ATT&CK gives a systematic view of attack techniques", "IoCs reveal compromises"],
+      "keywords": ["SOC", "SIEM", "cyber kill chain", "MITRE ATT&CK", "IoC", "threat intelligence"],
+      "reference_url": "https://attack.mitre.org/"
+    },
+    {
+      "id": "A06",
+      "category": "Cryptography",
+      "title": "How TLS works and forward secrecy",
+      "summary": "Understand what TLS, the protocol behind HTTPS, protects and how.",
+      "content": [
+        "TLS is a protocol that combines server authentication (certificates), key exchange, encrypted communication and tamper detection.",
+        "TLS 1.3 removed old and dangerous cipher suites and made the handshake faster. TLS 1.0 and 1.1 are deprecated.",
+        "(EC)DHE (ephemeral Diffie-Hellman key exchange) is used for key exchange.",
+        "Forward secrecy (PFS): because a throwaway key is created for each session, past communications cannot be decrypted even if the server's private key leaks later.",
+        "HSTS: makes the browser remember that \"this site must always be reached over HTTPS\", which prevents downgrade attacks to HTTP."
+      ],
+      "key_points": ["TLS 1.3 is recommended, 1.0 and 1.1 are deprecated", "(EC)DHE provides forward secrecy", "HSTS prevents downgrade attacks"],
+      "keywords": ["TLS", "TLS 1.3", "forward secrecy", "PFS", "ECDHE", "HSTS"]
+    },
+    {
+      "id": "A07",
+      "category": "Cloud",
+      "title": "Cloud security and the shared responsibility model",
+      "summary": "In the cloud, the provider and the customer each protect a different part.",
+      "content": [
+        "Shared responsibility model: the cloud provider protects \"the cloud itself\" (data centers, physical equipment and so on), and the customer protects \"what they put in the cloud\" (data, configuration and accounts).",
+        "Going from IaaS to PaaS to SaaS, the provider covers more and the customer covers less. In every model, however, managing data and accounts is the customer's responsibility.",
+        "Most cloud incidents come from \"misconfiguration\", such as storage that was set to public by mistake. CSPM (automated configuration checking) is used to check continuously.",
+        "In IAM (identity and access management), apply least privilege strictly. Do not use the root (administrator) account for everyday work, and protect it with MFA.",
+        "Also watch out for the accident of writing API keys or access keys in source code and pushing it to a public repository."
+      ],
+      "key_points": ["The provider protects the cloud itself, the customer protects what is in it", "Most incidents are misconfigurations", "Least privilege in IAM, MFA on root", "Do not write keys in code"],
+      "keywords": ["shared responsibility model", "IaaS", "PaaS", "SaaS", "IAM", "CSPM", "misconfiguration"]
+    },
+    {
+      "id": "A08",
+      "category": "Secure development",
+      "title": "Secure coding (Python)",
+      "summary": "The main points to watch when developing in Python.",
+      "content": [
+        "Use placeholders for SQL: pass values separately, as in cursor.execute(\"SELECT * FROM users WHERE id = ?\", (user_id,)), and do not build the statement by joining strings.",
+        "Running OS commands: pass the arguments as a list, as in subprocess.run([\"ls\", path]), and do not pass user input to shell=True.",
+        "Do not pass external input to eval() or exec(). Do not load untrusted data with pickle (it can run arbitrary code).",
+        "Do not write secrets (such as API keys) directly in code. Manage them with environment variables or a .env file (added to .gitignore).",
+        "Random numbers: use the secrets module, not random, to generate passwords and tokens.",
+        "Check dependencies for vulnerabilities regularly with tools such as pip-audit, and inspect your code with a static analysis tool (such as Bandit)."
+      ],
+      "key_points": ["Use placeholders for SQL", "Do not pass external input to shell=True, eval or pickle", "Keep secrets in environment variables", "Generate tokens with secrets", "Check with pip-audit and Bandit"],
+      "keywords": ["secure coding", "Python", "placeholder", "subprocess", "secrets", "pickle", "pip-audit", "Bandit"]
+    },
+    {
+      "id": "A09",
+      "category": "Management and operations",
+      "title": "Vulnerability management (CVE and CVSS)",
+      "summary": "Vulnerabilities that are found are identified, assessed and prioritized before they are dealt with.",
+      "content": [
+        "CVE: a worldwide common identifier given to publicly disclosed vulnerabilities (for example CVE-2021-44228).",
+        "CVSS: a common standard that rates the severity of a vulnerability from 0.0 to 10.0. It is calculated from how easy the attack is and how large the impact is.",
+        "JVN: a portal site that publishes vulnerability information for software used in Japan (run by JPCERT/CC and IPA).",
+        "Priority is decided not only by the CVSS score but also by whether the vulnerability is actually being exploited (for example CISA's KEV catalog), whether you use the product, and whether it is exposed to the internet.",
+        "With an SBOM (software bill of materials) you know which libraries and versions you use, so you can check the impact quickly when a new vulnerability appears."
+      ],
+      "key_points": ["CVE = identifier, CVSS = severity", "JVN for information relevant to Japan", "Consider real-world exploitation when prioritizing", "Track components with an SBOM"],
+      "keywords": ["CVE", "CVSS", "JVN", "KEV", "SBOM", "vulnerability management"],
+      "reference_url": "https://jvn.jp/"
+    },
+    {
+      "id": "A10",
+      "category": "Threats",
+      "title": "Supply chain attacks and current ransomware trends",
+      "summary": "Attacks that go through business partners or software supply routes, and organized ransomware attacks.",
+      "content": [
+        "Supply chain attack: reaching the real target through a business partner or subsidiary with weaker security, or through the mechanism for updating and distributing software.",
+        "Other techniques include inserting malicious code into open-source packages and publishing packages with similar names (typosquatting).",
+        "Today's ransomware attacks mostly use \"double extortion\": besides encrypting data, the attackers threaten to publish data they stole beforehand.",
+        "Many reported cases start from vulnerabilities or weak authentication in VPN devices and Remote Desktop.",
+        "Defenses: checking security requirements including those of business partners, checking where packages come from and their names, patching internet-facing devices quickly, offline backups, and incident response exercises.",
+        "IPA's \"10 Major Security Threats\", published every year in Japan, shows the main threats of that year."
+      ],
+      "key_points": ["Attacks that go through weaker partners or distribution routes", "Double-extortion ransomware", "VPN and RDP are common entry points", "Check current trends in IPA's 10 Major Security Threats"],
+      "keywords": ["supply chain attack", "typosquatting", "double extortion", "ransomware", "10 Major Security Threats"],
+      "reference_url": "https://www.ipa.go.jp/security/10threats/"
+    }
+  ]
+}

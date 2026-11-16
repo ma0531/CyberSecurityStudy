@@ -35,6 +35,55 @@ a {
   color: var(--teal);
 }
 
+/* ---- 一番上の帯（左：最終更新日と作成者、右：言語の切り替え） ---- */
+.top-bar {
+  background: var(--band);
+  color: #e1f0ec;
+  font-size: 0.85rem;
+}
+
+.top-bar .inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 6px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 16px;
+}
+
+.site-meta {
+  margin: 0;
+}
+
+.lang-switch {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.lang-switch button {
+  padding: 2px 12px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  color: #e1f0ec;
+  font: inherit;
+  cursor: pointer;
+}
+
+.lang-switch button:hover {
+  border-color: #8fd3c4;
+}
+
+/* 選択中の言語 */
+.lang-switch button.active {
+  background: #ffffff;
+  color: var(--band);
+  font-weight: 700;
+}
+
 /* ---- ヘッダー・フッター ---- */
 .site-header {
   background: var(--paper);
@@ -694,6 +743,10 @@ legend {
 
   .site-header .inner {
     padding: 14px 16px;
+  }
+
+  .top-bar .inner {
+    padding: 6px 16px;
   }
 
   .lesson-title {

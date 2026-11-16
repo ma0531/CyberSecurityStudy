@@ -13,3 +13,7 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Web版のテスト（tools/webtest）で作られるファイル
+tools/webtest/node_modules/
+tools/webtest/shots/

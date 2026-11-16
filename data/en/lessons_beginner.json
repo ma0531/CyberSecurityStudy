@@ -1,0 +1,186 @@
+{
+  "level": "beginner",
+  "level_name": "Beginner",
+  "description": "Security basics you need in everyday life and when using a PC or smartphone",
+  "lessons": [
+    {
+      "id": "B01",
+      "category": "Core concepts",
+      "title": "The three elements of information security (CIA)",
+      "summary": "Information security is built on protecting three things: confidentiality, integrity and availability.",
+      "content": [
+        "Confidentiality: keeping information visible only to people who are allowed to see it. Example: protecting a file with a password.",
+        "Integrity: keeping information correct and free from unauthorized changes. Example: a mechanism that detects tampering with data.",
+        "Availability: keeping information and systems usable whenever they are needed. Example: running two servers so that the service does not stop.",
+        "The initials of these three give the name \"CIA\". Security measures are easier to understand when you think about which element each one protects."
+      ],
+      "key_points": ["Confidentiality = do not let it be seen", "Integrity = do not let it be changed", "Availability = do not let it stop"],
+      "keywords": ["CIA", "confidentiality", "integrity", "availability"]
+    },
+    {
+      "id": "B02",
+      "category": "Authentication",
+      "title": "Passwords and multi-factor authentication",
+      "summary": "Strong passwords and multi-factor authentication prevent impersonation.",
+      "content": [
+        "A strong password is long, hard to guess, and never reused. A long phrase made of several words also works well.",
+        "If you reuse one password on several services, a leak from one of them lets attackers log in to the others too (a credential stuffing attack).",
+        "A password manager lets you keep a different strong password for every service safely.",
+        "Multi-factor authentication (MFA) combines two or more of: something you know (a password), something you have (a smartphone or security key), and something you are (a fingerprint or face).",
+        "Even if your password leaks, an attacker is much less likely to log in without the other factor."
+      ],
+      "key_points": ["Make passwords long and never reuse them", "The three factors: knowledge, possession, biometrics", "MFA greatly reduces unauthorized logins"],
+      "keywords": ["password", "multi-factor authentication", "MFA", "credential stuffing", "password manager"]
+    },
+    {
+      "id": "B03",
+      "category": "Threats",
+      "title": "Types of malware",
+      "summary": "Malicious software is collectively called \"malware\".",
+      "content": [
+        "Virus: a program that attaches itself to other files and spreads by infecting them.",
+        "Worm: a program that runs on its own and spreads copies of itself over a network.",
+        "Trojan horse: a program that pretends to be useful software and performs malicious actions behind the scenes.",
+        "Ransomware: a program that encrypts files so they cannot be used and demands a ransom to restore them.",
+        "Spyware: a program that steals information without the user noticing.",
+        "The basic defenses are keeping the OS and software updated, using security software, and not opening suspicious files."
+      ],
+      "key_points": ["A worm spreads by itself", "Ransomware encrypts files and demands a ransom", "Update, use security software, do not open suspicious files"],
+      "keywords": ["malware", "virus", "worm", "Trojan horse", "ransomware", "spyware"]
+    },
+    {
+      "id": "B04",
+      "category": "Threats",
+      "title": "Phishing",
+      "summary": "A scam that uses emails and websites that look real to steal IDs, passwords and card details.",
+      "content": [
+        "Emails and SMS messages pretending to be from banks, shopping sites or delivery companies lead you to a fake website.",
+        "Urgent wording such as \"Your account will be suspended\" or \"Please confirm immediately\" is typical.",
+        "Phishing by SMS is called \"smishing\".",
+        "Defense: do not log in directly from a link in an email or SMS. Use the official app or a bookmark instead, and check the sender and the URL carefully.",
+        "If you have already entered your details, change your password and contact the organizations concerned right away."
+      ],
+      "key_points": ["Be wary of messages that rush you", "Use the official app or a bookmark, not the link", "The SMS version is called smishing"],
+      "keywords": ["phishing", "smishing", "fake website", "spoofed email"]
+    },
+    {
+      "id": "B05",
+      "category": "Defenses",
+      "title": "Software updates and vulnerabilities",
+      "summary": "Vulnerabilities (security weaknesses) are fixed by updates.",
+      "content": [
+        "A vulnerability is a security weakness caused by a design mistake or a bug in software.",
+        "Attackers exploit vulnerabilities to infect devices with malware or gain unauthorized access.",
+        "Vendors distribute update programs (patches) that fix vulnerabilities.",
+        "An attack that targets a vulnerability before a fix is released is called a \"zero-day attack\".",
+        "Turn on automatic updates for your OS, browser and apps, and do not use software whose support has ended."
+      ],
+      "key_points": ["Vulnerability = a security weakness", "Patches fix them", "A zero-day attack strikes before the fix", "Do not use unsupported software"],
+      "keywords": ["vulnerability", "patch", "update", "zero-day attack", "end of support"]
+    },
+    {
+      "id": "B06",
+      "category": "Defenses",
+      "title": "Backups",
+      "summary": "Make copies regularly so that you can recover even if you lose your data.",
+      "content": [
+        "Take backups in case data is lost through hardware failure, mistakes or ransomware.",
+        "The \"3-2-1 rule\": keep 3 copies of your data, store them on 2 different kinds of media, and keep 1 copy in another place (offline or in the cloud).",
+        "A backup that is always connected to your PC can be encrypted by ransomware together with the original.",
+        "Do not just take backups. Check that you can actually restore from them."
+      ],
+      "key_points": ["The 3-2-1 rule", "Offline backups are effective against ransomware", "Test restoring as well"],
+      "keywords": ["backup", "3-2-1 rule", "restore", "offline"]
+    },
+    {
+      "id": "B07",
+      "category": "Communication",
+      "title": "Public Wi-Fi and encrypted connections (HTTPS)",
+      "summary": "Check that your connection is encrypted, and avoid important operations on public Wi-Fi.",
+      "content": [
+        "HTTPS encrypts the communication between your browser and a website. The URL begins with \"https://\".",
+        "HTTPS protects the content of the communication, but it does not guarantee that the site itself is safe or genuine. Fake sites can use HTTPS too.",
+        "On public Wi-Fi that has no password, or a password everyone knows, others may be able to eavesdrop on your traffic.",
+        "Attackers sometimes set up fake access points with names that look just like the real one.",
+        "On public Wi-Fi, avoid important operations such as online banking, use a VPN, or use your phone's tethering instead."
+      ],
+      "key_points": ["HTTPS = encrypted communication", "A fake site can still use HTTPS", "On public Wi-Fi, avoid important operations or use a VPN"],
+      "keywords": ["HTTPS", "encryption", "public Wi-Fi", "VPN", "rogue access point"]
+    },
+    {
+      "id": "B08",
+      "category": "Ethics and personal information",
+      "title": "Social media and personal information",
+      "summary": "Information you post on social media can be misused, and may become impossible to delete.",
+      "content": [
+        "The background of a photo or its location data can reveal where you live and your daily patterns.",
+        "Your birthday or your pet's name can be a hint for guessing passwords and answers to security questions.",
+        "Once information is on the internet, it can be copied and may never be fully deleted (a \"digital tattoo\").",
+        "Check who can see your posts, and be careful with messages and links from people you do not know."
+      ],
+      "key_points": ["Photos and location data can identify you", "Posts can be hints for guessing passwords", "Check your privacy settings"],
+      "keywords": ["social media", "personal information", "location data", "digital tattoo", "privacy settings"]
+    },
+    {
+      "id": "B09",
+      "category": "Defenses",
+      "title": "Using smartphones and apps safely",
+      "summary": "A smartphone is a \"small computer\" full of important information. Protect it with the basic settings.",
+      "content": [
+        "Get apps from the official stores (App Store, Google Play). Apps installed from an SMS link or a site of unknown origin may be malicious.",
+        "Check the permissions an app asks for when you install or first open it. Do not grant permissions the app does not need, such as a flashlight app asking for access to your contacts or SMS.",
+        "Set a screen lock (a PIN that is hard to guess, or fingerprint or face recognition), and keep the OS and apps up to date.",
+        "Turn on the \"find my device\" feature (remote lock and remote wipe) in case the phone is lost or stolen.",
+        "Delete apps you no longer use. Before you sell or give away a phone, sign out of your accounts and reset it to erase the data."
+      ],
+      "key_points": ["Get apps from the official stores", "Do not grant unnecessary permissions", "Set a screen lock and \"find my device\"", "Reset the phone before parting with it"],
+      "keywords": ["official store", "permissions", "screen lock", "remote wipe", "factory reset", "malicious app"]
+    },
+    {
+      "id": "B10",
+      "category": "Threats",
+      "title": "Fake warnings (tech support scams) and online fraud",
+      "summary": "Scams that use fake \"Your device is infected\" warnings or fake shopping sites to take your money or information.",
+      "content": [
+        "Tech support scam: while you browse a website, a fake screen appears with an alarm sound, saying something like \"Your device is infected with a virus. Call this number now.\" If you call, you are made to install remote-control software or to buy electronic money (gift cards) as a support fee.",
+        "The fake warning is just a web page, and in almost every case your device is not actually infected. Do not call the number shown. Close the browser. If it is full screen and will not close, hold down the Esc key to leave full screen, end the browser from Task Manager, or restart the PC.",
+        "Genuine support never asks for a gift card number as payment. If you are told to give the number, it is a scam.",
+        "Fake shopping sites tend to have extreme discounts, unnatural wording, bank transfer as the only payment method, and a bank account in an individual's name.",
+        "If you are in trouble, in Japan you can consult the Consumer Hotline (188) or IPA's Information Security Safety Consultation Service. Be careful with businesses that claim they can \"get your money back\": they are often a second scam."
+      ],
+      "key_points": ["Do not call the number on a fake warning", "Closing the browser usually solves it", "Asking for gift cards as payment is a scam", "In Japan, consult 188 or IPA if in trouble"],
+      "keywords": ["tech support scam", "fake warning", "remote control", "fake shopping site", "gift card scam", "Consumer Hotline"],
+      "reference_url": "https://www.ipa.go.jp/security/anshin/about.html"
+    },
+    {
+      "id": "B11",
+      "category": "Basic knowledge",
+      "title": "How the internet works and how to read a URL",
+      "summary": "Knowing how to read a URL helps you spot fake websites.",
+      "content": [
+        "Every device connected to the internet is assigned an \"IP address\" (for example 203.0.113.10), which works like a postal address.",
+        "To make them easier to remember, IP addresses are given names called \"domain names\" (for example example.co.jp). The system that looks up the IP address for a domain name is called \"DNS\".",
+        "The URL \"https://www.example.co.jp/login\" is made of \"https\" (the scheme, or how to communicate), \"www.example.co.jp\" (the host name or domain name) and \"/login\" (the path, or where the page is).",
+        "You tell which organization owns a site from the end of the domain name. The real domain of \"www.example.co.jp.login-check.com\" is \"login-check.com\", which has nothing to do with example.",
+        "Watch out for fake domains that use look-alike characters, such as \"rn\" for \"m\", \"0\" (zero) for \"o\", or \"1\" for \"l\". It is safer to use a bookmark or the official app than a link in an email."
+      ],
+      "key_points": ["IP address = the address, domain name = the name", "DNS converts names into IP addresses", "Read the domain from the end", "Watch out for look-alike fake domains"],
+      "keywords": ["IP address", "domain name", "DNS", "URL", "fake domain"]
+    },
+    {
+      "id": "B12",
+      "category": "Defenses",
+      "title": "Email and attachments",
+      "summary": "Email is a common entry point for malware and data leaks, so take care both when receiving and when sending.",
+      "content": [
+        "The sender's display name can be set to anything, so do not judge an email to be genuine from the display name alone.",
+        "Do not open attachments you were not expecting. Files with a disguised extension such as \"invoice.pdf.exe\" and Office documents with macros (automated actions) are especially dangerous. Do not casually click \"Enable Content\" or \"Enable Macros\".",
+        "In Windows, turning on the setting that shows file name extensions makes disguises easier to notice.",
+        "When sending one email to several people outside your organization, use BCC so that they cannot see each other's addresses. Putting them in To or CC leaks everyone's email address.",
+        "Check the recipients and the attachments before you send, to avoid sending to the wrong person."
+      ],
+      "key_points": ["Display names can be faked", "Watch for double extensions and macros", "Show file name extensions", "Use BCC for mass mailings"],
+      "keywords": ["attachment", "file extension", "double extension", "macro", "BCC", "misdirected email"]
+    }
+  ]
+}

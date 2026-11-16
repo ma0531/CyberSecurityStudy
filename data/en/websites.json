@@ -1,0 +1,143 @@
+{
+  "updated": "2026-11-16",
+  "groups": [
+    {
+      "title": "Check the latest threats and alerts",
+      "description": "Sites that publish information on new attack methods and vulnerabilities that need action right away. Make a habit of looking about once a week. Most of these sites are in Japanese.",
+      "sites": [
+        {
+          "name": "IPA: Important Security Information",
+          "url": "https://www.ipa.go.jp/security/security-alert/index.html",
+          "level": "Beginner and up",
+          "description": "Summarizes countermeasures for users on highly urgent vulnerabilities and attacks. (Japanese)"
+        },
+        {
+          "name": "JPCERT/CC: Alerts",
+          "url": "https://www.jpcert.or.jp/at/",
+          "level": "Intermediate and up",
+          "description": "Alerts on vulnerabilities and attacks that may cause widespread damage in Japan. Aimed at staff in organizations. (Japanese)"
+        },
+        {
+          "name": "JVN (vulnerability countermeasure information portal)",
+          "url": "https://jvn.jp/",
+          "level": "Intermediate and up",
+          "description": "Vulnerabilities and countermeasures for products used in Japan. Run jointly by JPCERT/CC and IPA. (Japanese)"
+        },
+        {
+          "name": "Council of Anti-Phishing Japan: Urgent Information",
+          "url": "https://www.antiphishing.jp/news/alert/",
+          "level": "Beginner and up",
+          "description": "Shows real phishing emails and fake sites currently in circulation, with screenshots. (Japanese)"
+        },
+        {
+          "name": "National Police Agency: Cyber Affairs Bureau",
+          "url": "https://www.npa.go.jp/bureau/cyber/",
+          "level": "Beginner and up",
+          "description": "Publishes the state of cybercrime (such as statistics on ransomware damage) and alerts. (Japanese)"
+        },
+        {
+          "name": "CISA KEV Catalog",
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "level": "Advanced",
+          "description": "A list of vulnerabilities confirmed to have been exploited. Used for prioritizing responses. (English)"
+        }
+      ]
+    },
+    {
+      "title": "Learn from the basics (for beginners)",
+      "description": "Easy-to-follow materials made by public bodies for the general public.",
+      "sites": [
+        {
+          "name": "IPA: Koko kara Security! (Security starts here)",
+          "url": "https://www.ipa.go.jp/security/kokokara/",
+          "level": "Beginner",
+          "description": "A portal that gathers learning materials and consultation services on information security. (Japanese)"
+        },
+        {
+          "name": "Ministry of Internal Affairs and Communications: Cybersecurity Site for the Public",
+          "url": "https://www.soumu.go.jp/main_sosiki/cybersecurity/kokumin/",
+          "level": "Beginner",
+          "description": "Explains things systematically, from basic knowledge to measures at home and at work. (Japanese)"
+        },
+        {
+          "name": "Handbook for Safe and Secure Internet Use",
+          "url": "https://security-portal.cyber.go.jp/guidance/handbook.html",
+          "level": "Beginner",
+          "description": "A handbook on using the internet safely, produced by the national body in charge of cybersecurity. (Japanese)"
+        },
+        {
+          "name": "IPA: 10 Major Security Threats",
+          "url": "https://www.ipa.go.jp/security/10threats/",
+          "level": "Beginner and up",
+          "description": "The threats getting attention now, announced every year. There is an edition for individuals and one for organizations. (Japanese)"
+        },
+        {
+          "name": "IPA: Information Security Safety Consultation Service",
+          "url": "https://www.ipa.go.jp/security/anshin/about.html",
+          "level": "Beginner",
+          "description": "Where to turn in Japan when you think you may have been hit by a virus or a scam. (Japanese)"
+        }
+      ]
+    },
+    {
+      "title": "Learn in more depth (intermediate to advanced)",
+      "description": "Information on certification exams, and materials that professionals refer to in their work.",
+      "sites": [
+        {
+          "name": "IPA: Information Security Management Examination",
+          "url": "https://www.ipa.go.jp/shiken/kubun/sg.html",
+          "level": "Intermediate",
+          "description": "A Japanese national examination on managing information security in organizations. A good goal for the intermediate level. (Japanese)"
+        },
+        {
+          "name": "IPA: Registered Information Security Specialist Examination",
+          "url": "https://www.ipa.go.jp/shiken/kubun/sc.html",
+          "level": "Advanced",
+          "description": "A Japanese national qualification for security professionals. A good goal for the advanced level. (Japanese)"
+        },
+        {
+          "name": "IPA: How to Secure Your Website",
+          "url": "https://www.ipa.go.jp/security/vuln/websecurity/about.html",
+          "level": "Intermediate and up",
+          "description": "A standard resource for developers that explains the typical vulnerabilities of web applications and how to counter them. (Japanese)"
+        },
+        {
+          "name": "OWASP Top 10",
+          "url": "https://owasp.org/www-project-top-ten/",
+          "level": "Advanced",
+          "description": "A ranking of the most serious security risks for web applications. It is revised every few years. (English)"
+        },
+        {
+          "name": "MITRE ATT&CK",
+          "url": "https://attack.mitre.org/",
+          "level": "Advanced",
+          "description": "A knowledge base that organizes attackers' tactics and techniques from real attack cases. (English)"
+        },
+        {
+          "name": "NIST SP 800-61 (incident response)",
+          "url": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "level": "Advanced",
+          "description": "Incident response guidance from the US NIST (Rev. 3, revised in 2025). It is referred to around the world. (English)"
+        }
+      ]
+    },
+    {
+      "title": "Practice hands-on (legal practice environments)",
+      "description": "Always practice attacks in an environment where you have permission.",
+      "sites": [
+        {
+          "name": "picoCTF",
+          "url": "https://picoctf.org/",
+          "level": "Beginner and up",
+          "description": "A CTF (a game of competing in security skills) for beginners. You learn by solving challenges. (English)"
+        },
+        {
+          "name": "OWASP Juice Shop",
+          "url": "https://owasp.org/www-project-juice-shop/",
+          "level": "Intermediate and up",
+          "description": "A practice web application made vulnerable on purpose. You run it on your own PC to practice. (English)"
+        }
+      ]
+    }
+  ]
+}
